@@ -54,6 +54,9 @@ function __autoload($Class) {
         if (!$iDir && file_exists("./library/{$dirName}/{$Class}.class.php") && !is_dir("./library/{$dirName}/{$Class}.class.php")): 
 		    include_once ("./library/{$dirName}/{$Class}.class.php"); 
                     $iDir = true;
+        elseif (!$iDir && file_exists("../library/{$dirName}/{$Class}.class.php") && !is_dir("../library/{$dirName}/{$Class}.class.php")): 
+		    include_once ("../library/{$dirName}/{$Class}.class.php"); 
+                    $iDir = true;
         elseif (!$iDir && file_exists("../{$dirName}/{$Class}.class.php") && !is_dir("../{$dirName}/{$Class}.class.php")): 
 		    include_once ("../{$dirName}/{$Class}.class.php");
                     $iDir = true;
