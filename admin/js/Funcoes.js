@@ -17,7 +17,7 @@ var Funcoes = function () {
                     var novoAno  = AnoAtual - 20;
 
                     if(ano < novoAno){
-                        alert("Ano menor que o Permitido!");
+                        Funcoes.Alerta(Funcoes.MSG01);
                         $(this).val("");
                         return false;
                     }
@@ -60,7 +60,7 @@ var Funcoes = function () {
                     $.get(urlValida, {valida: 'pesquisa_vinculo_veterinario', cred: id}, function(retorno) {
                            $("#carregando .cancelar").click();               
                            if(retorno == ""){
-                               alert("Sem Vinculo");
+                               Funcoes.Alerta(Funcoes.MSG02);
                            }else{            
                                $("#veterinario_selecionado option[value="+retorno+"]").attr('selected','selected');
                            }
@@ -77,11 +77,11 @@ var Funcoes = function () {
                            $("#carregando .cancelar").click();               
                            if(retorno == true){
                                $(".confirmacao .modal-header").removeClass("btn-success").addClass("btn-bricky");
-                               $(".confirmacao .modal-header .modal-title").text("CONFIRMAÇÃO");
-                               $(".confirmacao #confirmacao_msg b").html("A Vinculação do Veterinário ao Credenciado, Foi realizada com Sucesso!");                       
+                               $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
+                               $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
                                $("#confirmacao").click();
                            }else{            
-                               alert("Erro ao Vincular!");
+                               Funcoes.Alerta(Funcoes.MSG03);
                            }
                     });
                 })
@@ -156,7 +156,39 @@ var Funcoes = function () {
     return {
         init: function () {
             inicio();
-        }
+        },
+        Alerta: function(msg){
+            $(".aviso .modal-header").removeClass().addClass("modal-header btn btn-warning");
+            $(".aviso #icone").removeClass().addClass("btn btn-yellow");
+            $(".aviso i").removeClass().addClass("fa fa-exclamation-triangle");
+            $(".aviso .modal-header .modal-title").text("ALERTA");
+            $(".aviso #confirmacao_msg b").html(msg);
+            $("#aviso").click();
+        },
+        Sucesso: function(msg){
+            $(".aviso .modal-header").removeClass().addClass("modal-header btn btn-success");
+            $(".aviso #icone").removeClass().addClass("btn btn-green");
+            $(".aviso i").removeClass().addClass("fa fa-check")
+            $(".aviso .modal-header .modal-title").text("SUCESSO");
+            $(".aviso #confirmacao_msg b").html(msg);
+            $("#aviso").click();
+        },
+        Informativo: function(msg){
+            $(".aviso .modal-header").removeClass().addClass("modal-header btn btn-info");
+            $(".aviso #icone").removeClass().addClass("btn btn-primary");
+            $(".aviso i").removeClass().addClass("fa fa-info-circle");
+            $(".aviso .modal-header .modal-title").text("INFORMATIVO");
+            $(".aviso #confirmacao_msg b").html(msg);
+            $("#aviso").click();
+        },
+        
+        MSG_CONFIRMACAO: "CONFIRMAÇÃO",
+        
+        MSG01: "Ano menor que o Permitido!",
+        MSG02: "Sem Vinculo",
+        MSG03: "Erro ao Vincular!",
+        MSG04: "A Vinculação do Veterinário ao Credenciado, Foi realizada com Sucesso!",
+        
     };
 }();
 

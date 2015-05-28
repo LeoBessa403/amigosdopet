@@ -78,16 +78,20 @@ class Modal {
     
     public static function aviso($id) {
        echo '<div class="modal fade aviso" id="'.$id.'" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog" style="width: 450px;">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header" style="width: 100%;">
                                     <h4 class="modal-title"></h4>
                             </div>
                             <div class="modal-body">
-                                <p id="confirmacao_msg"><b></b></p>
+                                <p id="confirmacao_msg"> 
+                                <a class="btn btn-green" id="icone">
+                                    <i class="fa fa-arrow-circle-down"></i>
+                                </a> 
+                                <b></b></p>
                             </div>
                             <div class="modal-footer">
-                                      <button aria-hidden="true" data-dismiss="modal" class="btn btn-bricky cancelar">
+                                      <button aria-hidden="true" data-dismiss="modal" class="btn btn-light-grey cancelar">
                                             Fechar
                                     </button>
                             </div>

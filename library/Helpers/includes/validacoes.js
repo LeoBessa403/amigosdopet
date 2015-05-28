@@ -250,11 +250,13 @@ $(function() {
            
             if (obrigatorios == true) {
                 if (validacao == "error") {                   
-                    $(".row:last").before('<div class="alert alert-danger"><button data-dismiss="alert" class="close">&times;</button><i class="fa fa-exclamation-triangle"></i> <b> ALERTA: </b>Existe(em) campo(s) com erro, favor verificar!</div>');
-                     return false;
+//                  $(".row:last").before('<div class="alert alert-danger"><button data-dismiss="alert" class="close">&times;</button><i class="fa fa-exclamation-triangle"></i> <b> ALERTA: </b>Existe(em) campo(s) com erro, favor verificar!</div>');
+                    Funcoes.Alerta("Existe(em) campo(s) com erro, favor verificar!"); 
+                    return false;
                 } 
             } else {
-                $(".row:last").before('<div class="alert alert-info"><button data-dismiss="alert" class="close">&times;</button><i class="fa fa-info-circle"></i> <b> INFORMATIVO: </b>Existe(em) campo(s) obrigatório(s) em branco, favor verificar!</div>');
+//              $(".row:last").before('<div class="alert alert-info"><button data-dismiss="alert" class="close">&times;</button><i class="fa fa-info-circle"></i> <b> INFORMATIVO: </b>Existe(em) campo(s) obrigatório(s) em branco, favor verificar!</div>');
+                Funcoes.Informativo("Existe(em) campo(s) obrigatório(s) em branco, favor verificar!");
                 return false;
             }
         });
