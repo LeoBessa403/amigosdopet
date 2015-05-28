@@ -8,7 +8,7 @@ $servidor = "local";
 if($servidor == "web"){
     $config = array('HOME'=>'http://amigosdopet.net/','HOST'=>'cpmy0025.servidorwebfacil.com','USER'=>'amigosdo_netUser','PASS'=>'LeoBessa12345','DBSA'=>'amigosdo_net');
 }else{
-    $config = array('HOME'=>'http://localhost/amigosdopet/trunk/','HOST'=>'localhost','USER'=>'root','PASS'=>'','DBSA'=>'bd_amigos_pet');
+    $config = array('HOME'=>'http://localhost/amigosdopet/','HOST'=>'localhost','USER'=>'root','PASS'=>'','DBSA'=>'bd_amigos_pet');
 }
 
 define('HOME', $config['HOME']);
@@ -19,27 +19,27 @@ define('DBSA', $config['DBSA']);
 
 
 //////////////////////////////////////////////
-// ******* CONFIGURAÇÕES DO SITE ********** //
+// ******* CONFIGURA��ES DO SITE ********** //
 //////////////////////////////////////////////
 
-// Título do Site
+// T�tulo do Site
 define('DESC', 'AMIGOS DO PET');
-// Tabela de pesquisa de usuário para validação
+// Tabela de pesquisa de usuário para valida��o
 define('TABLE_USER', 'tb_user');
-// Campo de login na Tabela de pesquisa de usuário para validação
+// Campo de login na Tabela de pesquisa de usu�rio para valida��o
 define('CAMPO_USER', 'login');
-// Campo da senha na Tabela de pesquisa de usuário para validação
+// Campo da senha na Tabela de pesquisa de usu�rio para valida��o
 define('CAMPO_PASS', 'senha');
-// Campo do ID (Chave Primaria) na Tabela de pesquisa de usuário para validação
+// Campo do ID (Chave Primaria) na Tabela de pesquisa de usu�rio para valida��o
 define('CAMPO_ID', 'id');
-// Campo do Perfil na Tabela de pesquisa de usuário para validação dos perfis 
+// Campo do Perfil na Tabela de pesquisa de usu�rio para valida��o dos perfis 
 // (Ex.: cadastrante, administrador, pesquisador) Sepmre separados por (, )
 define('CAMPO_PERFIL', 'perfil');
 // Atribui o nome da Sessão do usuario Logado no sitema
 define('SESSION_USER', 'user_amigos_pet');
-// Tempo de Inativadade Máximo em Minutos, aceito para deslogar do Sistema.
+// Tempo de Inativadade M�ximo em Minutos, aceito para deslogar do Sistema.
 define('INATIVO', 20);
-// TAMANHO PADRÃO DO WIDTH DAS IAMGENS A SEREM CARREGADAS
+// TAMANHO PADR�O DO WIDTH DAS IAMGENS A SEREM CARREGADAS
 define('TAMANHO', 600);
 // PASTA DE ARMAZENAMENTO DE UPLOADS
 define('PASTAUPLOADS', 'uploads/');
