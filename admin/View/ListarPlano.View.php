@@ -52,11 +52,15 @@
                                                                                             <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_plano'].'" 
                                                                                                href="#Plano" data-original-title="Excluir Registro" data-placement="top">
                                                                                                 <i class="fa fa-trash-o"></i>
-                                                                                            </a>';
+                                                                                            </a>
+                                                                                            <a href="'.PASTAADMIN.'Plano/ListarProcedimentosPlano/'.Valida::GeraParametro('pla/'.$res['id_plano']).'" class="btn btn-orange tooltips" 
+                                                                                                data-original-title="Procedimentos do Plano" data-placement="left">
+                                                                                                 <i class="clip-inject"></i>
+                                                                                             </a>';
                                                                                 $grid->setColunas($res['nome']);
                                                                                 $grid->setColunas(Valida::formataMoeda($res['preco']));
                                                                                 $grid->setColunas($res['regiao']."-".$res['uf']);
-                                                                                $grid->setColunas($acao,3);
+                                                                                $grid->setColunas($acao,4);
                                                                                 $grid->criaLinha($res['id_plano']);
                                                                             endforeach;
                                                                            

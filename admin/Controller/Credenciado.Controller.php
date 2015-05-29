@@ -343,10 +343,8 @@ class Credenciado{
         }        
     }
     
-    function ProcedimentosVinculados(){
+    function ListarProcedimentosCredenciado(){
            
-        $id = "procedimentosAtendidos";
-        
         $id_cre         = UrlAmigavel::PegaParametro("cre");        
         $this->result   = CredenciadoModel::PesquisaTodosProcedimentosCredenciado($id_cre);
         $this->credenciado = CredenciadoModel::PesquisaUmCredenciado($id_cre);

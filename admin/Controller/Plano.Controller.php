@@ -128,7 +128,7 @@ class Plano{
         $this->result = PlanoModel::PesquisaPlano();
     }
     
-     function ProcedimentosPlano(){
+    function ProcedimentosPlano(){
            
         $id = "procedimentosPlano";
         
@@ -142,5 +142,12 @@ class Plano{
         foreach ($proc_plano as $key => $value) {            
             $this->proc_plano[$value['id_procedimento']] = $value['quantidade'];
         }        
+    }
+    
+    function ListarProcedimentosPlano(){
+           
+        $id_pla             = UrlAmigavel::PegaParametro("pla");    
+        $this->result       = PlanoModel::PesquisaTodosProcedimentosPlanosAtendidos($id_pla);
+        $this->plano        = PlanoModel::PesquisaUmPlano($id_pla);
     }
 }

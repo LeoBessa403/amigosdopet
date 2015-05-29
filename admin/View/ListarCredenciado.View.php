@@ -91,7 +91,7 @@
                                                                                                 href="#Veterinario" data-original-title="Vincular Veterinário" data-placement="left">
                                                                                                  <i class="fa fa-user-md"></i>
                                                                                              </a>
-                                                                                             <a href="'.PASTAADMIN.'Credenciado/ProcedimentosVinculados/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-orange tooltips" 
+                                                                                             <a href="'.PASTAADMIN.'Credenciado/ListarProcedimentosCredenciado/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-orange tooltips" 
                                                                                                 data-original-title="Procedimentos do Credenciado" data-placement="left">
                                                                                                  <i class="clip-inject"></i>
                                                                                              </a>';

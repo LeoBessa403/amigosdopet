@@ -80,11 +80,28 @@ class PlanoModel{
        // endif;   
     }
     
-     public static function PesquisaTodosProcedimentosPlano($id_pla){
+    public static function PesquisaTodosProcedimentosPlano($id_pla){
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar(Constantes::PROCEDIMENTO_PLANO_TABELA,"where ".Constantes::PLANO_CHAVE_PRIMARIA." = :id_pla","id_pla={$id_pla}");
         return $pesquisa->getResult();
     }
+    
+    public static function PesquisaTodosProcedimentosPlanosAtendidos($id_pla){
+        $tabela = Constantes::PLANO_TABELA." pla"
+                . " inner join ".Constantes::PROCEDIMENTO_PLANO_TABELA." propla"
+                . " on pla.".Constantes::PLANO_CHAVE_PRIMARIA." = propla.".Constantes::PLANO_CHAVE_PRIMARIA
+                . " inner join ".Constantes::PROCEDIMENTO_TABELA." pro"
+                . " on pro.".Constantes::PROCEDIMENTO_CHAVE_PRIMARIA." = propla.".Constantes::PROCEDIMENTO_CHAVE_PRIMARIA
+                . " inner join ".Constantes::CATEGORIA_TABELA." cat"
+                . " on pro.".Constantes::CATEGORIA_CHAVE_PRIMARIA." = cat.".Constantes::CATEGORIA_CHAVE_PRIMARIA;
+        
+        
+        $campos = "cat.nome as categoria, pro.*, propla.quantidade as qtd";
+        
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar($tabela,"where propla.".Constantes::PLANO_CHAVE_PRIMARIA." = :id","id={$id_pla}",$campos);
+        return $pesquisa->getResult();
+   }
     
     
 }
