@@ -63,7 +63,7 @@ class ClienteModel{
 //        
 //        $pesquisa = new Pesquisa();
 //        $pesquisa->Pesquisar($tabela,"where pes.".PessoaModel::chave_primaria." = :id","id={$id}",$campos);
-//        $deleta = new Deleta();
+        $deleta = new Deleta();
 //        foreach ($pesquisa->getResult() as $res):
             $deleta->Deletar(Constantes::CLIENTE_TABELA, "where ".Constantes::CLIENTE_CHAVE_PRIMARIA." = :id", "id={$id}");
             // FALTA APAGAR AS FOTOS DO CLIENTE

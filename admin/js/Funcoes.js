@@ -1,9 +1,10 @@
 var Funcoes = function () {
     var inicio = function () {
         
-                var home    = servidor_inicial();
+                var home      = servidor_inicial();
+                var upload    = home + pasta_upload();
                 var urlValida = home + 'admin/Controller/Ajax.Controller.php';
-                
+
                 // Mascaras
                 $("#carencia").mask("9?99");               
                 $("#codigo").mask("a.99.99?.99");               
@@ -152,9 +153,15 @@ var Funcoes = function () {
                     } 
                 });
                 
+               //DISABILITA A AÇÃO DOS BOTÕES DE PASSAR AS FOTOS DA MODAL FOTO
+               $(".controle").click(function(){
+                   return false;
+               });
+                
                // CARREGA MODAL DE FOTOS DO CLIENTE
                $(".fotos").click(function(){ 
                     var id = $(this).attr("id");
+                    var title = $(this).attr("title");
                     
                     $.ajax({
                         url: urlValida,
@@ -166,37 +173,44 @@ var Funcoes = function () {
                         },
                         success: function(data){
                              $("#carregando .cancelar").click();
-                             Funcoes.Alerta(data);
+                             var objData = jQuery.parseJSON(data);
+                             var total = objData.length;
+                             var primeira = 0;
+                             var ultima = total-1;
+//                             Funcoes.Alerta(objData[0].caminho);
+                             if(total > 0){
+                                $(".foto .modal-header .modal-title").text(title);  
+                                $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[0].caminho); 
+                                $("#fotos").click();
+                                if(total > 1){
+                                    $(".atual").attr("title",parseInt(primeira));
+                                    
+                                    $(".posterior").click(function(){
+                                        var titlePos = $(".atual").attr("title");
+                                        var fotoPos = (parseInt(titlePos)+1);
+                                        Funcoes.Alerta(objData[fotoPos].caminho);
+                                        if(fotoPos <= ultima){
+                                            $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[fotoPos].caminho);
+                                            $(".atual").attr("title",fotoPos);
+                                        }
+                                    });
+                                    
+                                    $(".anterior").click(function(){
+                                        var titleAnt = $(".atual").attr("title");  
+                                        var fotoAnt = (parseInt(titleAnt)-1);
+                                        Funcoes.Alerta(objData[fotoAnt].caminho);
+                                        if(fotoAnt >= primeira){
+                                            $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[fotoAnt].caminho);
+                                            $(".atual").attr("title",fotoAnt);
+                                        }
+                                    });
+                                }
+                             }else{
+                                Funcoes.Alerta(Funcoes.MSG05);
+                             }
+                             
                         }
                     });
-                    
-                    
-//                    
-//                   $.getJSON(urlValida, {valida: 'foto_cliente', id: id}, function(data, textStatus, jqXHR) {
-//                       
-////                        var fotos = new JSON();
-//                        Funcoes.Alerta(data); 
-////                           $("#carregando .cancelar").click();               
-////                           if(retorno == true){
-////                               $(".confirmacao .modal-header").removeClass("btn-success").addClass("btn-bricky");
-////                               $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
-////                               $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
-////                               $("#confirmacao").click();
-////                           }else{            
-////                               Funcoes.Alerta(Funcoes.MSG03);
-////                           }
-//                    });
-                   
-                   
-                  
-                  
-                  
-                  
-//                  $(".foto .modal-body.modal-body img").attr("src","uploads/" + $(this).attr("id")); 
-//                  
-//                   
-//                  $(".foto .modal-header .modal-title").text($(this).attr("title"));  
-//                  $("#fotos").click();
                });   
                 
     };
@@ -235,6 +249,7 @@ var Funcoes = function () {
         MSG02: "Sem Vinculo",
         MSG03: "Erro ao Vincular!",
         MSG04: "A Vinculação do Veterinário ao Credenciado, Foi realizada com Sucesso!",
+        MSG05: "Esse Cliente não possui fotos!",
         
     };
 }();

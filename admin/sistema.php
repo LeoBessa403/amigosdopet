@@ -182,6 +182,10 @@
                                 var inativo = "'.INATIVO.'";
                                 return inativo;
                         }
+                        function pasta_upload(){    
+                                var pasta = "'.PASTAUPLOADS.'";
+                                return pasta;
+                        }
                 </script>'; ?>
                 <script type="text/javascript" src="<?php echo INCLUDES;?>validacoes.js"></script>               
                 

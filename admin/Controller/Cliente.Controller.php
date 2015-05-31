@@ -47,16 +47,18 @@ class Cliente{
                     $atu['carterinha']  = (Valida::DataAtual('Ym') * 10000) + $id + 100;
                     $ok = ClienteModel::AtualizaCliente($atu, $id);
                     if($ok):
-                         $upload = new Upload();
-                         $pasta = "cliente/".$id."/";
-                         $arquivos = $upload->UploadMultiplasImagens($_FILES['fotos'],$dados['nome'],$pasta);
-                         $foto['id_cliente'] =  $id;
-                        
-                         foreach ($arquivos as $value) {
-                             $foto['caminho'] = $pasta.$value;
-                             FotoModel::CadastraFoto($foto);
-                         }                        
-                         $this->result = true;
+                        if(empty($_FILES)){
+                            $upload = new Upload();
+                            $pasta = "cliente/".$id."/";
+                            $arquivos = $upload->UploadMultiplasImagens($_FILES['fotos'],$dados['nome'],$pasta);
+                            $foto['id_cliente'] =  $id;
+
+                            foreach ($arquivos as $value) {
+                                $foto['caminho'] = $pasta.$value;
+                                FotoModel::CadastraFoto($foto);
+                            }                        
+                         }
+                        $this->result = true;
                     endif;
                 endif;
             endif;
@@ -82,7 +84,7 @@ class Cliente{
                 ->setInfo("Nome do Cliente")
                 ->CriaInpunt();
 
-        $options = array("" => "Selecione Uma ou Mais Cores", "Branco"=>"Branco", "Marrom"=>"Marrom","Preto"=>"Preto","Cinza"=>"Cinza");
+        $options = array("Branco"=>"Branco", "Marrom"=>"Marrom","Preto"=>"Preto","Cinza"=>"Cinza");
          $formulario
                 ->setClasses("multipla")
                 ->setId("cor")
@@ -137,6 +139,7 @@ class Cliente{
                 ->setTamanhoInput(6)
                 ->setId("id_raca")
                 ->setType("select")
+                ->setClasses("ob")
                 ->setLabel("Raça")
                 ->setAutocomplete("tb_raca", "raca","id_raca")
                 ->CriaInpunt();
