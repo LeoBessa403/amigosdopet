@@ -34,7 +34,7 @@
                                                                             Modal::load(); 
                                                                             Modal::deletaRegistro("Cliente");
                                                                             Modal::confirmacao("confirma_Cliente");
-                                                                            
+                                                                            Modal::Foto();
                                                                             $arrColunas = array('Nome','Raça','Carterinha','Sexo','Ação');
                                                                             $grid = new Grid();
                                                                             $grid->criaBotaoExportacao('Cliente', 'ExportarCliente');
@@ -49,12 +49,16 @@
                                                                                             <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_cliente'].'" 
                                                                                                href="#Cliente" data-original-title="Excluir Registro" data-placement="top">
                                                                                                 <i class="fa fa-trash-o"></i>
+                                                                                            </a>
+                                                                                            <a data-toggle="modal" role="button" class="btn btn-med-grey fotos" id="'.$res['id_cliente'].'" 
+                                                                                               href="#Foto" title="'.$res['nome'].'" data-placement="top">
+                                                                                                <i class="fa fa-camera"></i>
                                                                                             </a>';
                                                                                 $grid->setColunas($res['nome']);
                                                                                 $grid->setColunas($res['raca']);
                                                                                 $grid->setColunas($res['carterinha']);
                                                                                 $grid->setColunas($res['sexo']);
-                                                                                $grid->setColunas($acao,2);
+                                                                                $grid->setColunas($acao,3);
                                                                                 $grid->criaLinha($res['id_cliente']);
                                                                             endforeach;
                                                                            

@@ -102,11 +102,11 @@ class Modal {
     }
     
     public static function Foto() {
-       echo '<div class="modal fade confirmacao" id="foto" tabindex="-1" role="dialog" aria-hidden="true">
+       echo '<div class="modal fade foto" id="foto_cliente" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header btn-primary">
-                                    <button type="button" class="close cancelar" data-dismiss="modal" aria-hidden="true" style="color: #fff;">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="color: #fff;">
                                             X
                                     </button>
                                     <h4 class="modal-title"></h4>
@@ -115,13 +115,14 @@ class Modal {
                                 <img src="" width="100%"/>
                             </div>
                             <div class="modal-footer">
-                                    <button aria-hidden="true" data-dismiss="modal" class="btn btn-bricky cancelar">
+                                    <button aria-hidden="true" data-dismiss="modal" class="btn btn-bricky">
                                             Fechar
                                     </button>
                             </div>
                         </div>
                </div>
         </div>';
+        echo '<a data-toggle="modal" role="button" href="#foto_cliente" id="fotos"></a>';
     }
     
     

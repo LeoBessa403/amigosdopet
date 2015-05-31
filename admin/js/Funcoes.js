@@ -2,7 +2,7 @@ var Funcoes = function () {
     var inicio = function () {
         
                 var home    = servidor_inicial();
-                var urlValida = home + 'admin/Ajax.Controller.php';
+                var urlValida = home + 'admin/Controller/Ajax.Controller.php';
                 
                 // Mascaras
                 $("#carencia").mask("9?99");               
@@ -76,7 +76,7 @@ var Funcoes = function () {
                     $.get(urlValida, {valida: 'vincula_veterinario', cred: cred, vet: vet}, function(retorno) {
                            $("#carregando .cancelar").click();               
                            if(retorno == true){
-                               $(".confirmacao .modal-header").removeClass("btn-success").addClass("btn-bricky");
+                               $(".confirmacao .modal-header").removeClass("btn-bricky").addClass("btn-success");
                                $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
                                $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
                                $("#confirmacao").click();
@@ -151,6 +151,53 @@ var Funcoes = function () {
                         }  
                     } 
                 });
+                
+               // CARREGA MODAL DE FOTOS DO CLIENTE
+               $(".fotos").click(function(){ 
+                    var id = $(this).attr("id");
+                    
+                    $.ajax({
+                        url: urlValida,
+                        data: {valida: "foto_cliente", id: id},
+                        method: "GET",
+                        type: 'json',
+                        beforeSend: function(){
+                             $("#load").click();
+                        },
+                        success: function(data){
+                             $("#carregando .cancelar").click();
+                             Funcoes.Alerta(data);
+                        }
+                    });
+                    
+                    
+//                    
+//                   $.getJSON(urlValida, {valida: 'foto_cliente', id: id}, function(data, textStatus, jqXHR) {
+//                       
+////                        var fotos = new JSON();
+//                        Funcoes.Alerta(data); 
+////                           $("#carregando .cancelar").click();               
+////                           if(retorno == true){
+////                               $(".confirmacao .modal-header").removeClass("btn-success").addClass("btn-bricky");
+////                               $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
+////                               $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
+////                               $("#confirmacao").click();
+////                           }else{            
+////                               Funcoes.Alerta(Funcoes.MSG03);
+////                           }
+//                    });
+                   
+                   
+                  
+                  
+                  
+                  
+//                  $(".foto .modal-body.modal-body img").attr("src","uploads/" + $(this).attr("id")); 
+//                  
+//                   
+//                  $(".foto .modal-header .modal-title").text($(this).attr("title"));  
+//                  $("#fotos").click();
+               });   
                 
     };
     return {

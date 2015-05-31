@@ -187,6 +187,7 @@ class Cliente{
     function ListarCliente(){
         
         $this->result = ClienteModel::PesquisaCliente();
+        
     }
     
      function ExportarCliente() {
