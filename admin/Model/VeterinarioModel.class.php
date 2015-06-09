@@ -30,6 +30,18 @@ class VeterinarioModel{
         return $pesquisa->getResult();
     }
     
+    public static function PesquisaVeterinarioSelect(){
+        $tabela = Constantes::VETERINARIO_TABELA." vet"
+                . " inner join ".Constantes::PESSOA_TABELA." pes"
+                . " on pes.".Constantes::PESSOA_CHAVE_PRIMARIA." = vet.".Constantes::PESSOA_CHAVE_PRIMARIA;
+             
+        $campos = "vet.".Constantes::VETERINARIO_CHAVE_PRIMARIA." as id, pes.nome_razao as nome";
+        
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar($tabela,null,null,$campos);
+        return $pesquisa->getResult();
+    }
+    
     public static function PesquisaVinculaVeterinario(){
         $tabela = Constantes::VETERINARIO_TABELA." vet"
                 . " inner join ".Constantes::PESSOA_TABELA." pes"

@@ -19,27 +19,27 @@ define('DBSA', $config['DBSA']);
 
 
 //////////////////////////////////////////////
-// ******* CONFIGURA��ES DO SITE ********** //
+// ******* CONFIGURAÇÔES DO SITE ********** //
 //////////////////////////////////////////////
 
-// T�tulo do Site
+// T�tulo do Site
 define('DESC', 'AMIGOS DO PET');
-// Tabela de pesquisa de usuário para valida��o
+// Tabela de pesquisa de usuário para validação
 define('TABLE_USER', 'tb_user');
-// Campo de login na Tabela de pesquisa de usu�rio para valida��o
+// Campo de login na Tabela de pesquisa de usuário para validação
 define('CAMPO_USER', 'login');
-// Campo da senha na Tabela de pesquisa de usu�rio para valida��o
+// Campo da senha na Tabela de pesquisa de usuário para validação
 define('CAMPO_PASS', 'senha');
-// Campo do ID (Chave Primaria) na Tabela de pesquisa de usu�rio para valida��o
+// Campo do ID (Chave Primaria) na Tabela de pesquisa de usuário para validação
 define('CAMPO_ID', 'id');
-// Campo do Perfil na Tabela de pesquisa de usu�rio para valida��o dos perfis 
+// Campo do Perfil na Tabela de pesquisa de usuário para validação dos perfis 
 // (Ex.: cadastrante, administrador, pesquisador) Sepmre separados por (, )
 define('CAMPO_PERFIL', 'perfil');
 // Atribui o nome da Sessão do usuario Logado no sitema
 define('SESSION_USER', 'user_amigos_pet');
-// Tempo de Inativadade M�ximo em Minutos, aceito para deslogar do Sistema.
+// Tempo de Inativadade Máximo em Minutos, aceito para deslogar do Sistema.
 define('INATIVO', 20);
-// TAMANHO PADR�O DO WIDTH DAS IAMGENS A SEREM CARREGADAS
+// TAMANHO PADR�O DO WIDTH DAS IAMGENS A SEREM CARREGADAS
 define('TAMANHO', 600);
 // PASTA DE ARMAZENAMENTO DE UPLOADS
 define('PASTAUPLOADS', 'uploads/');

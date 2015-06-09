@@ -162,7 +162,10 @@ var Funcoes = function () {
                $(".fotos").click(function(){ 
                     var id = $(this).attr("id");
                     var title = $(this).attr("title");
-                    
+                    var total = 0;
+                    $(".atual").attr("title","");
+                    $(".foto .modal-body.modal-body img").attr("src",""); 
+                     
                     $.ajax({
                         url: urlValida,
                         data: {valida: "foto_cliente", id: id},
@@ -174,13 +177,13 @@ var Funcoes = function () {
                         success: function(data){
                              $("#carregando .cancelar").click();
                              var objData = jQuery.parseJSON(data);
-                             var total = objData.length;
+                             total = objData.length;
                              var primeira = 0;
                              var ultima = total-1;
 //                             Funcoes.Alerta(objData[0].caminho);
                              if(total > 0){
                                 $(".foto .modal-header .modal-title").text(title);  
-                                $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[0].caminho); 
+                                $(".foto .modal-body.modal-body img").attr("src",upload + objData[0].caminho); 
                                 $("#fotos").click();
                                 if(total > 1){
                                     $(".atual").attr("title",parseInt(primeira));
@@ -188,9 +191,10 @@ var Funcoes = function () {
                                     $(".posterior").click(function(){
                                         var titlePos = $(".atual").attr("title");
                                         var fotoPos = (parseInt(titlePos)+1);
-                                        Funcoes.Alerta(objData[fotoPos].caminho);
+//                                        Funcoes.Alerta(objData[fotoPos].caminho);
+                                        Funcoes.Alerta(ultima);
                                         if(fotoPos <= ultima){
-                                            $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[fotoPos].caminho);
+                                            $(".foto .modal-body.modal-body img").attr("src",upload + objData[fotoPos].caminho);
                                             $(".atual").attr("title",fotoPos);
                                         }
                                     });
@@ -198,12 +202,15 @@ var Funcoes = function () {
                                     $(".anterior").click(function(){
                                         var titleAnt = $(".atual").attr("title");  
                                         var fotoAnt = (parseInt(titleAnt)-1);
-                                        Funcoes.Alerta(objData[fotoAnt].caminho);
+//                                        Funcoes.Alerta(objData[fotoAnt].caminho);
+                                        Funcoes.Alerta(ultima);
                                         if(fotoAnt >= primeira){
-                                            $(".foto .modal-body.modal-body img").attr("src",upload + "/" + objData[fotoAnt].caminho);
+                                            $(".foto .modal-body.modal-body img").attr("src",upload + objData[fotoAnt].caminho);
                                             $(".atual").attr("title",fotoAnt);
                                         }
                                     });
+                                }else{
+                                    Funcoes.Alerta("Apenas Uma FoTo");
                                 }
                              }else{
                                 Funcoes.Alerta(Funcoes.MSG05);

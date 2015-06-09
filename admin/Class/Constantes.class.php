@@ -24,7 +24,7 @@ class Constantes {
     const RACA_CHAVE_PRIMARIA               = "id_raca";
     
     const CREDENCIADO_TABELA                = "tb_credenciado";
-    const CREDENCIADO_CAMPOS                = "observacao,id_pessoa,id_regiao,horario_abertura,horario_fechamento,funcionamento_de,funcionamento_ate";
+    const CREDENCIADO_CAMPOS                = "observacao,id_pessoa,id_regiao,horario_abertura,horario_fechamento,funcionamento_de,funcionamento_ate,id_veterinario";
     const CREDENCIADO_CHAVE_PRIMARIA        = "id_credenciado";
     
     const PROCEDIMENTO_CREDENCIADO_TABELA   = "tb_procedimento_credenciado";

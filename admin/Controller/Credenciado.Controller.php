@@ -19,13 +19,20 @@ class Credenciado{
         if(!empty($_POST[$id])):
                        
             $dados = $_POST; 
-             $dados['cliente'] = "";
+            $dados['cliente'] = "";
+            $dados['id_veterinario'] = $dados['id_veterinario'][0];
             if(isset($dados["tipo"]) && $dados["tipo"] != ""):
                 $dados["tipo_pessoa"] = "F";
                 $dados["cpf_cnpj"] = $dados["cpf"];
             else:
                 $dados["tipo_pessoa"] = "J";
                 $dados["cpf_cnpj"] = $dados["cnpj"];
+            endif;
+            if(!isset($dados["funcionamento_de"])):
+                $dados["funcionamento_de"] = "";
+            endif;
+            if(!isset($dados["funcionamento_ate"])):
+                $dados["funcionamento_ate"] = "";
             endif;
 
             unset($dados[$id],$dados["cpf"],$dados["cnpj"]); 
@@ -49,7 +56,6 @@ class Credenciado{
                        $this->resultAlt = true;
                     endif;
             else:
-                
                     $pessoa = Valida::RecebiVariavel(Constantes::PESSOA_CAMPOS, $dados);
                     $idPessoa = PessoaModel::CadastraPessoa($pessoa);
                     $dados['id_pessoa'] = $idPessoa;
@@ -256,26 +262,31 @@ class Credenciado{
                 ->setLabel("E-mail")
                 ->setClasses("email")
                 ->CriaInpunt();
-
+         
+          $veterinarios = VeterinarioModel::PesquisaVeterinarioSelect();
+          $vets = array(""=>"Selecione um Veterinário");
+          foreach ($veterinarios as $value) {
+              $vets[$value["id"]] = $value["nome"];
+          }
+          $formulario
+                ->setId("id_veterinario")
+                ->setType("select") 
+                ->setLabel("Veterinário Responsável")
+                ->setOptions($vets)
+                ->CriaInpunt();
+          
           $formulario
                 ->setType("textarea") 
                 ->setId("observacao")
                 ->setLabel("Observação")
                 ->CriaInpunt();
-        
+              
           if($id_cre):
                 $formulario
                         ->setType("hidden")
                         ->setId("id_credenciado")
                         ->setValues($id_cre)
                         ->CriaInpunt();
-                if(isset($res['veterinario'])):
-                    $formulario
-                        ->setId("veterinario")
-                        ->setLabel("Veterinário Responsável")
-                        ->setClasses("disabilita")
-                        ->CriaInpunt();
-                endif;
           endif;
         
         $this->form = $formulario->finalizaForm(); 

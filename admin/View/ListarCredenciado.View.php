@@ -87,10 +87,6 @@
                                                                                                 data-original-title="Vincular Procedimentos" data-placement="left">
                                                                                                  <i class="clip-inject"></i>
                                                                                              </a>
-                                                                                             <a data-toggle="modal" role="button" class="btn btn-dark-beige tooltips vincula" id="'.$res['id_credenciado'].'" 
-                                                                                                href="#Veterinario" data-original-title="Vincular Veterinário" data-placement="left">
-                                                                                                 <i class="fa fa-user-md"></i>
-                                                                                             </a>
                                                                                              <a href="'.PASTAADMIN.'Credenciado/ListarProcedimentosCredenciado/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-orange tooltips" 
                                                                                                 data-original-title="Procedimentos do Credenciado" data-placement="left">
                                                                                                  <i class="clip-inject"></i>
@@ -100,7 +96,7 @@
                                                                                     $grid->setColunas($res['tel1']);
                                                                                     $grid->setColunas($res['email']);
                                                                                     $grid->setColunas($res['cidade']."-".$res['uf']);
-                                                                                    $grid->setColunas($acao,5);
+                                                                                    $grid->setColunas($acao,4);
                                                                                     $grid->criaLinha($res['id_credenciado']);
                                                                                 endforeach;
 

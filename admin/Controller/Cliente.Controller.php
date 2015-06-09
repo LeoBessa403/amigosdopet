@@ -14,16 +14,17 @@ class Cliente{
             
             $dados = $_POST; 
             unset($dados[$id]); 
+            if(!empty($dados['cor'])):
+                $dados['cor']       = implode(",", $dados['cor']);
+            endif;
+            $dados['especie']   = $dados['especie'][0];
+            $dados['porte']     = $dados['porte'][0];
+            $dados['sexo']      = $dados['sexo'][0];
+            $dados['id_raca']   = $dados['id_raca'][0];
+            $dados['id_pessoa']   = $dados['id_pessoa'][0];
         
             if(!empty($_POST['id_cliente'])):
                 
-                if(!empty($dados['cor'])):
-                    $dados['cor']       = implode(",", $dados['cor']);
-                endif;
-                $dados['especie']   = $dados['especie'][0];
-                $dados['porte']     = $dados['porte'][0];
-                $dados['sexo']      = $dados['sexo'][0];
-                $dados['id_raca']   = $dados['id_raca'][0];
                 $id = $dados['id_cliente'];
                 unset($dados['id_cliente']);
                 
@@ -33,13 +34,7 @@ class Cliente{
                     $this->resultAlt = true;
                 endif;
             else:
-                if(!empty($dados['cor'])):
-                    $dados['cor']       = implode(",", $dados['cor']);
-                endif;
-                $dados['especie']   = $dados['especie'][0];
-                $dados['porte']     = $dados['porte'][0];
-                $dados['sexo']      = $dados['sexo'][0];
-                $dados['id_raca']   = $dados['id_raca'][0];
+
                 $dados['cadastro']  = Valida::DataDB(Valida::DataAtual('d/m/Y'));
 
                 $id = ClienteModel::CadastraCliente($dados);                
@@ -169,6 +164,19 @@ class Cliente{
                 ->setLimite(($limite)? $limite: 5)
                 ->setClasses("multipla")
                 ->setInfo($info)
+                ->CriaInpunt();
+           
+          $titulares = TitularModel::PesquisaTitularSelect();
+          $titul = array(""=>"Selecione um Dono");
+          foreach ($titulares as $value) {
+              $titul[$value["id_pessoa"]] = $value["nome_razao"];
+          }
+          $formulario
+                ->setId("id_pessoa")
+                ->setType("select") 
+                ->setLabel("Responsável pelo Cliente")
+                ->setClasses("ob")
+                ->setOptions($titul)
                 ->CriaInpunt();
                       
           if($id_cli):

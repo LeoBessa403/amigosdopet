@@ -16,17 +16,13 @@ class TitularModel{
         return $pesquisa->getResult();
     }
     
-//    public static function PesquisaTitularSelect(){
-//        $tabela = EntidadeModel::tabela." ent"
-//                . " inner join ".PessoaModel::tabela." pes"
-//                . " on pes.".EntidadeModel::chave_primaria." = ent.".EntidadeModel::chave_primaria;
-//        
-//        $campos = "ent.id_entidade, pes.nome_razao, pes.nome_fantasia";
-//        
-//        $pesquisa = new Pesquisa();
-//        $pesquisa->Pesquisar($tabela,"where ent.tipo_entidade = 'C'",null,$campos);
-//        return $pesquisa->getResult();
-//    }
+    public static function PesquisaTitularSelect(){
+        $campos = "id_pessoa, nome_razao";
+        
+        $pesquisa = new Pesquisa();
+        $pesquisa->Pesquisar(Constantes::PESSOA_TABELA,"where cliente = 'C'",null,$campos);
+        return $pesquisa->getResult();
+    }
     
     public static function PesquisaUmTitular($id){
       $tabela = Constantes::PESSOA_TABELA." pes"
