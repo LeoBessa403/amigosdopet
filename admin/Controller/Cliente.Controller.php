@@ -42,7 +42,7 @@ class Cliente{
                     $atu['carterinha']  = (Valida::DataAtual('Ym') * 10000) + $id + 100;
                     $ok = ClienteModel::AtualizaCliente($atu, $id);
                     if($ok):
-                        if(empty($_FILES)){
+                        if($_FILES['fotos']['name'][0]){
                             $upload = new Upload();
                             $pasta = "cliente/".$id."/";
                             $arquivos = $upload->UploadMultiplasImagens($_FILES['fotos'],$dados['nome'],$pasta);
