@@ -1,17 +1,37 @@
 <?php
           
-class index{
+class Index{
     
-    public $page;
-    public $paginator;
-    public $pesquisa; 
+    function Index(){
 
-    function __construct() {
-        //Valida::ValLogin();
     }
     
-    function index(){
-              
+    function Empresa(){
+
+    }
+    
+    function Blog(){
+        
+    }
+    
+    function Noticia1(){
+        
+    }
+    
+    function Noticia2(){
+        
+    }
+    
+    function Noticia3(){
+        
+    }
+    
+    function Noticia4(){
+        
+    }
+    
+    function Noticia5(){
+        
     }
     
    
