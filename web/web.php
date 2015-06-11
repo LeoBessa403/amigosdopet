@@ -128,7 +128,7 @@
 								<ul class="dropdown-menu">
 									<li>
 										<a href="<?php echo PASTASITE; ?>Credenciados/ListarCredenciado">
-											Ver Credenciados
+											Rede Credenciada
 										</a>
 									</li>
 								</ul>
