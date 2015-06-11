@@ -30,7 +30,7 @@ class Constantes {
     const PROCEDIMENTO_CREDENCIADO_TABELA   = "tb_procedimento_credenciado";
     
     const PESSOA_TABELA                     = "tb_pessoa";
-    const PESSOA_CAMPOS                     = "nome_razao,cpf_cnpj,tipo_pessoa,cliente";
+    const PESSOA_CAMPOS                     = "nome_razao,cpf_cnpj,tipo_pessoa,cliente,fantasia";
     const PESSOA_CHAVE_PRIMARIA             = "id_pessoa";
     
     const DADOS_TABELA                      = "tb_dados";

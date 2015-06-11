@@ -35,6 +35,7 @@
                                                                             Modal::confirmacao("confirma_Categoria");
                                                                             $arrColunas = array('Nome','Ação');
                                                                             $grid = new Grid();
+                                                                            $grid->criaBotaoExportacao('Categoria', 'ExportarCategoria');
                                                                             $grid->setColunasIndeces($arrColunas);
                                                                             $grid->criaGrid();
                                                                              

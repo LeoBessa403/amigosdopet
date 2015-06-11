@@ -71,6 +71,19 @@ class Cliente{
         
        $formulario = new Form($id, "admin/Cliente/CadastroCliente");
        $formulario->setValor($res);
+       
+        $titulares = TitularModel::PesquisaTitularSelect();
+          $titul = array(""=>"Selecione um Dono");
+          foreach ($titulares as $value) {
+              $titul[$value["id_pessoa"]] = $value["nome_razao"];
+          }
+          $formulario
+                ->setId("id_pessoa")
+                ->setType("select") 
+                ->setLabel("Responsável pelo Cliente")
+                ->setClasses("ob")
+                ->setOptions($titul)
+                ->CriaInpunt();
              
         $formulario
                 ->setId("nome")
@@ -166,19 +179,6 @@ class Cliente{
                 ->setInfo($info)
                 ->CriaInpunt();
            
-          $titulares = TitularModel::PesquisaTitularSelect();
-          $titul = array(""=>"Selecione um Dono");
-          foreach ($titulares as $value) {
-              $titul[$value["id_pessoa"]] = $value["nome_razao"];
-          }
-          $formulario
-                ->setId("id_pessoa")
-                ->setType("select") 
-                ->setLabel("Responsável pelo Cliente")
-                ->setClasses("ob")
-                ->setOptions($titul)
-                ->CriaInpunt();
-                      
           if($id_cli):
                $formulario
                     ->setId("carterinha")

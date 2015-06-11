@@ -66,7 +66,11 @@ class VeterinarioModel{
         $pesquisa = new Pesquisa();
         $pesquisa->Pesquisar($tabela,"where ".Constantes::VETERINARIO_CHAVE_PRIMARIA." = :id","id={$id}");
         $result   = $pesquisa->getResult();
-        return $result[0];
+        if($result){
+            return $result[0];
+        }else{
+             return null;
+        }
     }
     
     public static function PesquisaUmVeterinarioVinculado($id){

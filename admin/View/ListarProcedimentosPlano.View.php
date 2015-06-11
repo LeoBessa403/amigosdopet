@@ -33,7 +33,7 @@
 									<?php
                                                                             Modal::load(); 
                                                                             $grid = new Grid();
-                                                                            $grid->criaBotaoExportacao('Procedimento', 'ExportarProcedimento');
+                                                                            $grid->criaBotaoExportacao('Plano', 'ExportarPlano');
                                                                             $arrColunas = array('Código','Nome','Categoria','Carência','Periodicidade','QTD/Plano');
                                                                             $grid->setColunasIndeces($arrColunas);
                                                                             $grid->criaGrid();

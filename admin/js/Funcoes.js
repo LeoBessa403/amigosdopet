@@ -51,41 +51,41 @@ var Funcoes = function () {
                 });
 
                 // CRIA MODAL DE VINCULAR VETERINARIO AO CREDENCIADO
-                $(".vincula").click(function(){
-                    $("#load").click();
-                    var id = $(this).attr("id");
-                    $(".vincula_veterinario .btn-success").attr('id',id);
-                    var cred = $("#registro-" + id + " td:first").text();
-                    $(".vincula_veterinario #credencia").text(cred);
-                    
-                    $.get(urlValida, {valida: 'pesquisa_vinculo_veterinario', cred: id}, function(retorno) {
-                           $("#carregando .cancelar").click();               
-                           if(retorno == ""){
-                               Funcoes.Alerta(Funcoes.MSG02);
-                           }else{            
-                               $("#veterinario_selecionado option[value="+retorno+"]").attr('selected','selected');
-                           }
-                    });
-                })
+//                $(".vincula").click(function(){
+//                    $("#load").click();
+//                    var id = $(this).attr("id");
+//                    $(".vincula_veterinario .btn-success").attr('id',id);
+//                    var cred = $("#registro-" + id + " td:first").text();
+//                    $(".vincula_veterinario #credencia").text(cred);
+//                    
+//                    $.get(urlValida, {valida: 'pesquisa_vinculo_veterinario', cred: id}, function(retorno) {
+//                           $("#carregando .cancelar").click();               
+//                           if(retorno == ""){
+//                               Funcoes.Alerta(Funcoes.MSG02);
+//                           }else{            
+//                               $("#veterinario_selecionado option[value="+retorno+"]").attr('selected','selected');
+//                           }
+//                    });
+//                })
 
                 // ENVIA O VINCULO DO VETERINARIO AO CREDENCIADO
-                 $(".vincula_veterinario .btn-success").click(function(){
-                    var cred = $(this).attr("id");
-                    var vet = $("#veterinario_selecionado").val();
-                    $("#load").click();
-
-                    $.get(urlValida, {valida: 'vincula_veterinario', cred: cred, vet: vet}, function(retorno) {
-                           $("#carregando .cancelar").click();               
-                           if(retorno == true){
-                               $(".confirmacao .modal-header").removeClass("btn-bricky").addClass("btn-success");
-                               $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
-                               $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
-                               $("#confirmacao").click();
-                           }else{            
-                               Funcoes.Alerta(Funcoes.MSG03);
-                           }
-                    });
-                })
+//                 $(".vincula_veterinario .btn-success").click(function(){
+//                    var cred = $(this).attr("id");
+//                    var vet = $("#veterinario_selecionado").val();
+//                    $("#load").click();
+//
+//                    $.get(urlValida, {valida: 'vincula_veterinario', cred: cred, vet: vet}, function(retorno) {
+//                           $("#carregando .cancelar").click();               
+//                           if(retorno == true){
+//                               $(".confirmacao .modal-header").removeClass("btn-bricky").addClass("btn-success");
+//                               $(".confirmacao .modal-header .modal-title").text(Funcoes.MSG_CONFIRMACAO);
+//                               $(".confirmacao #confirmacao_msg b").html(Funcoes.MSG04);                       
+//                               $("#confirmacao").click();
+//                           }else{            
+//                               Funcoes.Alerta(Funcoes.MSG03);
+//                           }
+//                    });
+//                })
 
                 // VINCULAÇÃO DOS PROCEDIMENTOS AOS CREDENCIADOS // BOTÃO TODOS DA CATEGORIA
                 $(".todos").change(function(){
@@ -180,7 +180,6 @@ var Funcoes = function () {
                              total = objData.length;
                              var primeira = 0;
                              var ultima = total-1;
-//                             Funcoes.Alerta(objData[0].caminho);
                              if(total > 0){
                                 $(".foto .modal-header .modal-title").text(title);  
                                 $(".foto .modal-body.modal-body img").attr("src",upload + objData[0].caminho); 
@@ -191,8 +190,6 @@ var Funcoes = function () {
                                     $(".posterior").click(function(){
                                         var titlePos = $(".atual").attr("title");
                                         var fotoPos = (parseInt(titlePos)+1);
-//                                        Funcoes.Alerta(objData[fotoPos].caminho);
-                                        Funcoes.Alerta(ultima);
                                         if(fotoPos <= ultima){
                                             $(".foto .modal-body.modal-body img").attr("src",upload + objData[fotoPos].caminho);
                                             $(".atual").attr("title",fotoPos);
@@ -202,8 +199,6 @@ var Funcoes = function () {
                                     $(".anterior").click(function(){
                                         var titleAnt = $(".atual").attr("title");  
                                         var fotoAnt = (parseInt(titleAnt)-1);
-//                                        Funcoes.Alerta(objData[fotoAnt].caminho);
-                                        Funcoes.Alerta(ultima);
                                         if(fotoAnt >= primeira){
                                             $(".foto .modal-body.modal-body img").attr("src",upload + objData[fotoAnt].caminho);
                                             $(".atual").attr("title",fotoAnt);

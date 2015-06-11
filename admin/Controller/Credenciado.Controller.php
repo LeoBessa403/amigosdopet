@@ -125,6 +125,12 @@ class Credenciado{
                 ->setClasses("ob")
                 ->setInfo("Nome da pessoa ou Razão social da empresa")
                 ->CriaInpunt();
+        
+        $formulario
+                ->setId("fantasia")
+                ->setLabel("Nome Fantasia")
+                ->setInfo("Nome do Estabelecimento")
+                ->CriaInpunt();
 
         $formulario
                 ->setId("cpf")

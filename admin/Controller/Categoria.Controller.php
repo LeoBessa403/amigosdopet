@@ -59,5 +59,24 @@ class Categoria{
         
         $this->result = CategoriaModel::PesquisaCategoria();
     }
+    
+    function ExportarCategoria() {
+        
+        $formato = UrlAmigavel::PegaParametro("formato");
+        $result = CategoriaModel::PesquisaCategoria();
+        $i = 0;
+        foreach ($result as $value) {
+            $res[$i]['id_categoria'] = $value['id_categoria'];
+            $res[$i]['nome'] = $value['nome'];
+            $i++;
+        }
+        $Colunas = array('Código','Categoria');
+        $exporta = new Exportacao($formato, "Relatório de Categorias");
+       // $exporta->setPapelOrientacao("paisagem");
+        $exporta->setColunas($Colunas);
+        $exporta->setConteudo($res);
+        $exporta->GeraArquivo();
+       
+    }
    
 }

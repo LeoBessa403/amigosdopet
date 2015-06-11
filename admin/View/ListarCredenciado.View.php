@@ -34,45 +34,11 @@
                                                                             Modal::load(); 
                                                                             Modal::deletaRegistro("Credenciado");
                                                                             Modal::confirmacao("confirma_Credenciado");
-                                                                        ?>									
-                                                                        <!-- VINCULA VETERINARIO AO CREDENCIADO -->
-									<div class="modal fade vincula_veterinario" id="Veterinario" tabindex="-1" role="dialog" aria-hidden="true">
-										<div class="modal-dialog">
-											<div class="modal-content">
-                                                                                            <div class="modal-header btn-dark-beige">
-													<button type="button" class="close cancelar" data-dismiss="modal" aria-hidden="true">
-														X
-													</button>
-													<h4 class="modal-title">Vinculação do Veterinário ao Credenciado</h4>
-												</div>
-												<div class="modal-body">
-                                                                                                    <p>Credenciado: <big><b><span id="credencia"></span></b></big></p>
-                                                                                                
-                                                                                                    <?php
-                                                                                                         echo "<select id='veterinario_selecionado' name='veterinario_selecionado' class='form-control search-select ob'>";
-                                                                                                         echo '<option value="" disabled selected>Selecione um Veterinário</option>';
-                                                                                                         foreach ($veterinarios as $values):
-                                                                                                             echo '<option value="'.$values['id_veterinario'].'">'.$values['nome_razao'].'</option>';
-                                                                                                         endforeach;                                                                                                         
-                                                                                                         echo "</select>";
-                                                                                                    ?>
-												</div>
-												<div class="modal-footer">
-													<button aria-hidden="true" data-dismiss="modal" class="btn btn-bricky cancelar">
-														Fechar
-													</button>
-													<button class="btn btn-success" data-dismiss="modal" id="">
-														OK
-													</button>
-												</div>
-											</div>
-										</div>
-									</div>   
-                                                                            <?php
-                                                                                $arrColunas = array('Nome / Razão Social','CPF / CNPJ','Telefones','E-mail','Cidade','Ação');
-                                                                                $grid = new Grid();
-                                                                                $grid->setColunasIndeces($arrColunas);
-                                                                                $grid->criaGrid();
+
+                                                                            $arrColunas = array('Nome / Razão Social','CPF / CNPJ','Telefones','E-mail','Cidade','Ação');
+                                                                            $grid = new Grid();
+                                                                            $grid->setColunasIndeces($arrColunas);
+                                                                            $grid->criaGrid();
                                                                                 
                                                                                 foreach ($result as $res): 
                                                                                     $acao = '<a href="'.PASTAADMIN.'Credenciado/CadastroCredenciado/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-primary tooltips" 
