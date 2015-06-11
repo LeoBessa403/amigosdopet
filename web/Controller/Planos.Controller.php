@@ -54,6 +54,10 @@ class Planos{
         $this->plano        = PlanoModel::PesquisaUmPlano($id_pla);
     }
     
+    function Cobertura(){
+        
+    }
+    
 }
 ?>
    
