@@ -62,7 +62,7 @@
 							<div class="social-icons">
 								<ul>
 									<li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom">
-										<a target="_blank" href="http://facebook.com">
+										<a target="_blank" href="https://www.facebook.com/pages/Amigos-do-Pet/1450981475201108">
 											Facebook
 										</a>
 									</li>									
@@ -241,7 +241,7 @@
 						<div class="social-icons">
 							<ul>
 								<li class="social-facebook tooltips" data-original-title="Facebook" data-placement="bottom">
-									<a target="_blank" href="http://facebook.com" data-original-title="Facebook">
+									<a target="_blank" href="https://www.facebook.com/pages/Amigos-do-Pet/1450981475201108" data-original-title="Facebook">
 										Facebook
 									</a>
 								</li>
