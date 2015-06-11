@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" style="margin-top: 50px; margin-bottom: 50px;">
     <div class="container">
         <div class="row">
             <div class="col-sm-8" style="margin-bottom: 30px; text-align: justify;">
