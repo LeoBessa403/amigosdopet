@@ -118,7 +118,7 @@
 										<a href="<?php echo PASTASITE; ?>Planos/ListarPlanos">
 											Ver Planos
 										</a>
-										<a href="<?php echo PASTASITE; ?>Planos/Coberturas">
+										<a href="<?php echo PASTASITE; ?>Planos/Cobertura">
 											Principais Coberturas
 										</a>
 									</li>
