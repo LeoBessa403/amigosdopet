@@ -64,7 +64,7 @@ $(function(){
        $class = " ".$class;
     ?>
     <div id="login">
-        <form action="login/logar" method="post" class="logar-amigos">
+        <form action="Index/Logar" method="post" class="logar-amigos">
             
             <input type="text" name="user" id="user" />
             <input type="password" name="senha" id="senha" />

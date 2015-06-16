@@ -17,7 +17,7 @@
                             die;
                         endif;
                     else:
-                        Login::logar();
+                        Index::logar();
                     endif;
                else: 
                     if(isset($explode[3]) && $explode[3] == "desloga"):
