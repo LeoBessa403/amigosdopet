@@ -28,6 +28,7 @@
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main-responsive.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_blue.css" type="text/css" id="skin_color">
+                <link rel="stylesheet" href="<?php echo PASTAADMIN;?>plugins/css3-animation/animations.css">
 		<!-- end: MAIN CSS -->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/css/settings.css">
@@ -188,7 +189,7 @@
 		</div>
 		<!-- end: MAIN CONTAINER -->
 		<!-- start: FOOTER -->
-		<footer id="footer">
+                <footer id="footer" style="padding: 0px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-3">
@@ -220,12 +221,18 @@
 							<ul class="contact">
 								<li>
 									<p>
-                                                                            <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: red;">Verificar Endereço</span>
+                                                                            <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Bairro Jatiuca
+                                                                            Rua Travessa Santo Antônio Nº 150</span>
 									</p>
 								</li>
 								<li>
 									<p>
-										<i class="fa fa-phone"></i><strong>Telefone:</strong> (82)3023-4747
+										<i class="fa fa-envelope"></i><strong>CEP:</strong> <span style="color: white;">57035-692</span>
+									</p>
+								</li>
+								<li>
+									<p>
+										<i class="fa fa-phone"></i><strong>Telefone:</strong> <span style="color: white;">(82)3023-4747</span>
 									</p>
 								</li>
 								<li>
@@ -261,8 +268,8 @@
 			<div class="footer-copyright">
 				<div class="container">
 					<div class="row">
-						<div class="col-md-1">
-							<a class="logo" href="index.html">
+						<div class="col-md-3">
+							<a class="logo" href="#">
 								DESENVOLVIMENTO LEO BESSA
 							</a>
 						</div>
@@ -305,6 +312,7 @@
 		<script src="<?php echo PASTASITE; ?>plugins/blockUI/jquery.blockUI.js"></script>
 		<script src="<?php echo PASTASITE; ?>plugins/jquery-cookie/jquery.cookie.js"></script>
 		<script src="<?php echo PASTASITE; ?>js/main.js"></script>
+                <script src="<?php echo PASTAADMIN;?>js/ui-animation.js"></script>
 		<!-- end: MAIN JAVASCRIPTS -->
 		<!-- start: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script src="<?php echo PASTASITE; ?>plugins/revolution_slider/rs-plugin/js/jquery.themepunch.plugins.min.js"></script>

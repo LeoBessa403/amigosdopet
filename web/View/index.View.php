@@ -6,11 +6,11 @@
 							<img src="<?php echo PASTASITE; ?>images/sliders/slidebg1.png"  style="background-color:rgb(246, 246, 246)" alt="slidebg1"  data-bgfit="cover" data-bgposition="left bottom" data-bgrepeat="no-repeat">
 							<div class="caption lft slide_title slide_item_left"
 							data-x="0"
-							data-y="50"
+							data-y="110"
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-                                                            Protegendo a Saúde <br/>do seu Animal
+                                                            Plano de Saúde Animal
 							</div>
 							<div class="caption lft slide_subtitle slide_item_left"
 							data-x="0"
@@ -18,7 +18,7 @@
 							data-speed="400"
 							data-start="2000"
 							data-easing="easeOutExpo">
-								Planos ideáis seu pet
+								A partir de R$ 49,90
 							</div>
 							<div class="caption lft slide_desc slide_item_left"
 							data-x="0"
@@ -28,15 +28,15 @@
 							data-easing="easeOutExpo">
 								Confira nossos planos
 								<br>
-								a saúde do seu amiguinho vale ouro.
+								Planos Especiais pra você
 							</div>
-							<a class="caption lft btn btn-green slide_btn slide_item_left" href="http://themeforest.net/item/clipone-bootstrap-3-responsive-admin-template/5881143?ref=Cliptheme"
+							<a class="caption lft btn btn-green slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Planos/ListarPlanos"
 							data-x="0"
 							data-y="320"
 							data-speed="400"
 							data-start="3000"
 							data-easing="easeOutExpo">
-								Compre Agora
+								Contratar Agora
 							</a>
 							<div class="caption sfr"
 							data-x="620"
@@ -53,37 +53,40 @@
 							<img src="<?php echo PASTASITE; ?>images/sliders/slidebg2.png"  style="background-color:rgb(246, 246, 246)" alt="slidebg1"  data-bgfit="cover" data-bgposition="left bottom" data-bgrepeat="no-repeat">
 							<div class="caption lft slide_title slide_item_left"
 							data-x="0"
-							data-y="105"
+							data-y="50"
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-								Para Cães e Gatos
+								Cuide com Carinho <br>do seu principal amigo.
 							</div>
 							<div class="caption lfl slide_subtitle slide_item_left"
 							data-x="0"
-							data-y="180"
+							data-y="185"
 							data-speed="400"
 							data-start="2000"
 							data-easing="easeOutExpo">
-								Nossa alegria
+								Principais Coberturas
 							</div>
 							<div class="caption lfr slide_desc slide_item_left"
 							data-x="0"
-							data-y="220"
+							data-y="230"
 							data-speed="400"
 							data-start="2500"
 							data-easing="easeOutExpo">
-								Plano Gold
-								<br>
-								Plano Diamante
+								<ul>
+                                                                    <li>Internações</li><br>
+                                                                    <li>Radiografia e Eletrocardiograma</li><br>
+                                                                    <li>Vacínas Antirábicas, Triplece, Gripe Canina etc.</li><br>
+                                                                    <li>E muito mais...</li><br>
+                                                                </ul>
 							</div>
-							<a class="caption lfb btn btn-bricky slide_btn slide_item_left" href="http://themeforest.net/item/clipone-bootstrap-3-responsive-admin-template/5881143?ref=Cliptheme"
+							<a class="caption lfb btn btn-bricky slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Planos/Cobertura"
 							data-x="0"
-							data-y="320"
+							data-y="340"
 							data-speed="400"
 							data-start="3000"
 							data-easing="easeOutExpo">
-								Campre Já!
+								Confira
 							</a>
 							<div class="caption lft"
 							data-x="550"
@@ -129,7 +132,7 @@
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-								Super Promoções
+								Maior Rede Credenciada
 							</div>
 							<div class="caption sft slide_subtitle slide_item_left"
 							data-x="0"
@@ -137,7 +140,7 @@
 							data-speed="400"
 							data-start="2000"
 							data-easing="easeOutExpo">
-								Aproveite nosso plano de inauguração
+								Assistência 24Hs
 							</div>
 							<div class="caption sfr slide_desc slide_item_left"
 							data-x="0"
@@ -145,17 +148,15 @@
 							data-speed="400"
 							data-start="2500"
 							data-easing="easeOutExpo">
-								Assistência 24Hs
-								<br>
-								Seu bixinha totalmente protegido
+								Estamos sempre perto de você.
 							</div>
-							<a class="caption sfb btn btn-purple slide_btn slide_item_left" href="http://themeforest.net/item/clipone-bootstrap-3-responsive-admin-template/5881143?ref=Cliptheme"
+							<a class="caption sfb btn btn-purple slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Credenciados/ListarCredenciado"
 							data-x="0"
 							data-y="320"
 							data-speed="400"
 							data-start="3000"
 							data-easing="easeOutExpo">
-								Compre agora!
+								Saiba Mais
 							</a>
 							<div class="caption sfr"
 							data-x="550"
