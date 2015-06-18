@@ -65,11 +65,11 @@ class Pesquisa extends Conn {
         parse_str($Valores, $this->Places);
         $this->Execute();
     }
+    
     /**
-     * <b>Seta os dados:</b> Dados a serem substituidos na query de pesquisa.  
-     * @param STRING $Valores = variavel={$valor}&variavel2={$valor2}
+     * <b>getSql:</b> Retorna o SQL que esta sendo Executado.  
      */
-    public function getSelect() {
+    public function getSql() {
        return $this->Select;
     }
 
