@@ -37,7 +37,7 @@
 		<!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
 		<!-- start: HTML5SHIV FOR IE8 -->
 		<!--[if lt IE 9]>
-		<script src="<?php echo PASTASITE; ?><?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
+		<script src="<?php echo PASTASITE; ?>plugins/html5shiv.js"></script>
 		<![endif]-->
 		<!-- end: HTML5SHIV FOR IE8 -->
 	</head>
