@@ -27,7 +27,7 @@
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/animate.css/animate.min.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main-responsive.css">
-		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_blue.css" type="text/css" id="skin_color">
+		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_gray.css" type="text/css" id="skin_color">
                 <link rel="stylesheet" href="<?php echo PASTAADMIN;?>plugins/css3-animation/animations.css">
 		<!-- end: MAIN CSS -->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
@@ -94,7 +94,7 @@
 						<!-- end: RESPONSIVE MENU TOGGLER -->
 						<!-- start: LOGO -->
 						<a class="navbar-brand" href="<?php echo PASTASITE; ?>">
-							<?php echo DESC;?>
+                                                    <img src="<?php echo PASTASITE; ?>img/logo_pet.jpg" width="170"/>
 						</a>
 						<!-- end: LOGO -->
 					</div>
