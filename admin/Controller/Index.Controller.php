@@ -4,6 +4,14 @@ class Index{
     
 
     function Index(){
+//        $email = new Email();
+//        
+//        $email->setMensagem("<h1>Mensagem de Teste de Envio OK, Amigos dod Pet.</h1>")
+//              ->setNomeDestinatario("Marcelo Moura")
+//              ->setEmailDestinatario("leonardomcbessa@gmail.com")
+//              ->setTitulo("Mensagem de Teste")
+//              ->Enviar();  
+              
     }
     
     public static function Logar(){     
