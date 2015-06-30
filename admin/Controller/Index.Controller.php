@@ -2,9 +2,7 @@
           
 class Index{
     
-    public $result;
-    
-    
+
     function Index(){
     }
     

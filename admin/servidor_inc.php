@@ -54,9 +54,6 @@ define('HOST_EMAIL', 'mail.amigosdopet.net');
 define('PORTA_EMAIL', 587);
 define('USER_EMAIL', 'contato@amigosdopet.net');
 define('PASS_EMAIL', 'contato123*');
-
-
-
 }
 
 
