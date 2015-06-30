@@ -51,7 +51,7 @@ define('TABELA_AUDITORIA', 'tb_auditoria');
 //////////////////////////////////////////////
 
 define('HOST_EMAIL', 'mail.amigosdopet.net');
-define('PORTA_EMAIL', 25);
+define('PORTA_EMAIL', 587);
 define('USER_EMAIL', 'contato@amigosdopet.net');
 define('PASS_EMAIL', 'contato123*');
 

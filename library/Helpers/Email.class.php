@@ -29,27 +29,29 @@ class Email {
      * <b>../uploads/</b>
      */
     function Enviar() {
-        require 'PHPMailer/class.phpmailer.php';
+       // require 'PHPMailer/class.phpmailer.php';
         $mail = new PHPMailer(true);
         $mail->IsSMTP();
-
+        $mail->SMTPAuth   = true;
+        $mail->IsHTML(true); 
+        
         $mail->Host       = HOST_EMAIL;
         $mail->Port       = PORTA_EMAIL;
-        $mail->SMTPDebug  = 2;                     
-        $mail->SMTPAuth   = true;
         $mail->Username   = $this->Email_Remetente;
         $mail->Password   = $this->Senha_Email_Remetente;
-        $mail->SetFrom($this->Email_Remetente, DESC);
-        $mail->AddAddress($this->Email_Destinatario, $this->Nome_Destinatario);
-        $mail->Subject = $this->Titulo;
+        $mail->SMTPDebug  = 1;       
+        $mail->From = utf8_decode($this->Email_Remetente);
+        $mail->FromName = utf8_decode(DESC);
+        $mail->Subject = utf8_decode($this->Titulo);
+        $mail->Body = utf8_decode($this->Mensagem);
+        $mail->AddAddress(utf8_decode($this->Email_Destinatario), utf8_decode($this->Nome_Destinatario));
         $mail->AltBody = 'Mensagem de Erro automática, favor não responder!'; // optional - MsgHTML will create an alternate automatically
-        $mail->MsgHTML($this->Mensagem);
 //            $mail->AddAttachment('images/phpmailer.gif');      // attachment
 //            $mail->AddAttachment('images/phpmailer_mini.gif'); // attachment
         if($mail->Send())
-            echo "E-mail enviado com Sucesso!";
+            return true;
         else
-            echo "Não foi possível o envio. ".$mail->ErrorInfo;
+            return $mail->ErrorInfo;
             
     }
 
