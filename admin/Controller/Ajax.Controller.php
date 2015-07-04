@@ -1,4 +1,4 @@
-<?php
+999<?php
 /* 
  * Controller résponsavel para receber e passar dados para controller responsável.
  */
@@ -20,7 +20,6 @@ Pesquisa Fotos do Cliente
             $fotos = ClienteModel::PesquisaFotosUmCliente($id);
             echo json_encode($fotos);
         break;
-    
     
     
     

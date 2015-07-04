@@ -2,7 +2,8 @@
           
 class Index{
     
-
+    public $Email;
+            
     function Index(){
     }
     
@@ -39,6 +40,27 @@ class Index{
         else:
                 Redireciona(ADMIN.LOGIN."?o=info2");
         endif;     
+    }
+    
+    // EXEMPLO DE ENVIO DE EMAIL
+    function EmailCliente(){
+        $email = new Email();
+        
+        // Índice = Nome, e Valor = Email.
+        $emails = array(
+                "Leo Bessa Hot" => "leodjx@hotmail.com",
+                "Lili Gmail" => "lililasp@gmail.com",
+                "Lele Hot" => "lele.403@hotmail.com",
+                "Leo Bessa Gmail" => "leonardomcbessa@gmail.com"
+                );
+        $Mensagem = "<h2>Olá vc ganhou um Bônus de 5 Milhões.... que piada</h2>";
+        
+        $email->setEmailDestinatario($emails)
+              ->setTitulo("Email de  Teste Pra Todos")
+              ->setMensagem($Mensagem);
+        
+        // Variável para validação de Emails Enviados com Sucesso.
+        $this->Email = $email->Enviar();
     }
     
     

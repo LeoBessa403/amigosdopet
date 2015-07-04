@@ -19,10 +19,10 @@ define('DBSA', $config['DBSA']);
 
 
 //////////////////////////////////////////////
-// ******* CONFIGURAÇÔES DO SITE ********** //
+// ******* CONFIGURAÇÕES DO SITE ********** //
 //////////////////////////////////////////////
 
-// T�tulo do Site
+// Título do Site
 define('DESC', 'AMIGOS DO PET');
 // Tabela de pesquisa de usuário para validação
 define('TABLE_USER', 'tb_user');
@@ -39,7 +39,7 @@ define('CAMPO_PERFIL', 'perfil');
 define('SESSION_USER', 'user_amigos_pet');
 // Tempo de Inativadade Máximo em Minutos, aceito para deslogar do Sistema.
 define('INATIVO', 20);
-// TAMANHO PADR�O DO WIDTH DAS IAMGENS A SEREM CARREGADAS
+// TAMANHO PADRÃO DO WIDTH DAS IAMGENS A SEREM CARREGADAS
 define('TAMANHO', 600);
 // PASTA DE ARMAZENAMENTO DE UPLOADS
 define('PASTAUPLOADS', 'uploads/');
@@ -47,7 +47,7 @@ define('PASTAUPLOADS', 'uploads/');
 define('TABELA_AUDITORIA', 'tb_auditoria');
 
 //////////////////////////////////////////////
-// ******* CONFIGURAÇÔES DE EMAIL ********** //
+// ******* CONFIGURAÇÕES DE EMAIL ********** //
 //////////////////////////////////////////////
 
 define('HOST_EMAIL', 'mail.amigosdopet.net');

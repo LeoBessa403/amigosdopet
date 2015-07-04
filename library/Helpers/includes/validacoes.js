@@ -344,13 +344,17 @@ $(function() {
             $(this).find("li").css("display","block");
         })
         
-        
+        // CLASSE QUE DISABILITA O CAMPO
+        $(".disabilita").attr("disabled",true);   
+       
+        // ABRE MODAL DE LOAD DO SISTEMA
         $("#load").click();
-        // LOAD CARREGANDO IMAGENS
+        
+        // ABRE MODAL DE CONFIRMAÇÃO DE EMAIL
+        $("#emailConfirma").click();
+        
+        // FECHA MODAL DE LOAD APOS CARREGAR A PÁGINA
 	$(window).load(function(){
 		$("#carregando .cancelar").click(); 	
 	});
-        
-        // CLASSE QUE DISABILITA O CAMPO
-        $(".disabilita").attr("disabled",true);       
 });

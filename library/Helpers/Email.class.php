@@ -9,7 +9,6 @@
 class Email {
 
     private $Email_Destinatario;
-    private $Nome_Destinatario;
     private $Email_Remetente;
     private $Senha_Email_Remetente;
     private $Titulo;
@@ -29,7 +28,8 @@ class Email {
      * <b>../uploads/</b>
      */
     function Enviar() {
-       // require 'PHPMailer/class.phpmailer.php';
+       
+        $control = TRUE;
         $mail = new PHPMailer(true);
         $mail->IsSMTP();
         $mail->SMTPAuth   = true;
@@ -44,15 +44,30 @@ class Email {
         $mail->FromName = utf8_decode(DESC);
         $mail->Subject = utf8_decode($this->Titulo);
         $mail->Body = utf8_decode($this->Mensagem);
-        $mail->AddAddress(utf8_decode($this->Email_Destinatario), utf8_decode($this->Nome_Destinatario));
         $mail->AltBody = 'Mensagem de Erro automática, favor não responder!'; // optional - MsgHTML will create an alternate automatically
 //            $mail->AddAttachment('images/phpmailer.gif');      // attachment
 //            $mail->AddAttachment('images/phpmailer_mini.gif'); // attachment
-        if($mail->Send())
-            return true;
+        foreach ($this->Email_Destinatario as $nome => $email) {
+            if($email){
+                $mail->AddAddress(utf8_decode($email), utf8_decode($nome));
+                if($mail->Send())
+                    $valida = TRUE;
+                else
+                    $valida = FALSE;
+                /* Limpa tudo */
+                $mail->ClearAllRecipients();
+                $mail->ClearAttachments();
+                if($valida == FALSE){
+                    $control = FALSE;
+                }
+            }
+        }
+        
+        
+        if($control == true)
+            return TRUE;
         else
             return $mail->ErrorInfo;
-            
     }
 
     /**
@@ -60,7 +75,7 @@ class Email {
      * Caso não informe a largura será 1024!
      * @param INT $Width = Largura da imagem ( 800 padrão )
      */
-    public function setEmailDestinatario($Email_Destinatario) {
+    public function setEmailDestinatario(Array $Email_Destinatario) {
         $this->Email_Destinatario = $Email_Destinatario;
         return $this;
     }
@@ -72,25 +87,6 @@ class Email {
      */
     public function getEmailDestinatario() {
         return $this->Email_Destinatario;
-    }
-    
-    /**
-     * <b>Enviar Imagem:</b> Basta envelopar um $_FILES de uma imagem e caso queira um nome e uma largura personalizada.
-     * Caso não informe a largura será 1024!
-     * @param INT $Width = Largura da imagem ( 800 padrão )
-     */
-    public function setNomeDestinatario($Nome_Destinatario) {
-        $this->Nome_Destinatario = $Nome_Destinatario;
-        return $this;
-    }
-    
-    /**
-     * <b>Enviar Imagem:</b> Basta envelopar um $_FILES de uma imagem e caso queira um nome e uma largura personalizada.
-     * Caso não informe a largura será 1024!
-     * @param INT $Width = Largura da imagem ( 800 padrão )
-     */
-    public function getNomeDestinatario() {
-        return $this->Nome_Destinatario;
     }
     
     /**

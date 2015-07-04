@@ -101,6 +101,37 @@ class Modal {
        echo '<a data-toggle="modal" role="button" href="#'.$id.'" id="aviso"></a>';
     }
     
+    public static function ConfirmacaoEmail($Email) {
+       echo '<div class="modal fade emailConfirma" id="ConfirmacaoEmail" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" style="width: 450px;">
+                        <div class="modal-content">
+                            <div class="modal-header btn btn-success" style="width: 100%;">
+                                    <h4 class="modal-title">SUCESSO</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p id="confirmacao_msg"> 
+                                <a class="btn btn-green" id="icone">
+                                    <i class="fa fa-check"></i>
+                                </a> 
+                                <b>';
+                                    if($Email == TRUE){
+                                        echo Mensagens::OK_ENVIO_EMAIL;
+                                    }else{
+                                        echo $Email;
+                                    }
+                                echo '</b></p>
+                            </div>
+                            <div class="modal-footer">
+                                      <button aria-hidden="true" data-dismiss="modal" class="btn btn-light-grey cancelar">
+                                            Fechar
+                                    </button>
+                            </div>
+                        </div>
+               </div>
+        </div>';
+       echo '<a data-toggle="modal" role="button" href="#ConfirmacaoEmail" id="emailConfirma"></a>';
+    }
+    
     public static function Foto() {
        echo '<div class="modal fade foto" id="foto_cliente" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
