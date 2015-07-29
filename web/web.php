@@ -222,7 +222,9 @@
 								<li>
 									<p>
                                                                             <i class="fa fa-map-marker"></i><strong>Endereço:</strong> <span style="color: white;">Bairro Jatiuca
-                                                                            Rua Travessa Santo Antônio Nº 150</span>
+                                                                                Rua Travessa <br>Santo Antônio Nº 150 - Maceió / AL</br>
+                                                                                Qsb 15 lote 02 loja 02 - Taguatinga / DF
+                                                                            </span>
 									</p>
 								</li>
 								<li>
