@@ -10,7 +10,7 @@
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-                                                            Plano de Saúde Animal
+                                                           <?php echo Valida::getMiniatura( "banner/patinhas.png", "Patinhas", 42, 30); ?>Plano de Saúde Animal
 							</div>
 							<div class="caption lft slide_subtitle slide_item_left"
 							data-x="0"
@@ -26,9 +26,9 @@
 							data-speed="400"
 							data-start="2500"
 							data-easing="easeOutExpo">
-								Confira nossos planos
+								<?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?>Confira nossos planos
 								<br>
-								Planos Especiais pra você
+								<?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?>Planos Especiais pra você
 							</div>
 							<a class="caption lft btn btn-green slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Planos/ListarPlanos"
 							data-x="0"
@@ -57,7 +57,7 @@
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-								Cuide com Carinho <br>do seu principal amigo.
+								<?php echo Valida::getMiniatura( "banner/patinhas.png", "Patinhas", 42, 30); ?>Cuide com Carinho <br>do seu principal amigo.
 							</div>
 							<div class="caption lfl slide_subtitle slide_item_left"
 							data-x="0"
@@ -73,16 +73,15 @@
 							data-speed="400"
 							data-start="2500"
 							data-easing="easeOutExpo">
-								<ul>
-                                                                    <li>Internações</li><br>
-                                                                    <li>Radiografia e Eletrocardiograma</li><br>
-                                                                    <li>Vacínas Antirábicas, Triplece, Gripe Canina etc.</li><br>
-                                                                    <li>E muito mais...</li><br>
-                                                                </ul>
+								<?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Consultas<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Exames<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Vacínas<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Internação<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Cirurgias<br>
 							</div>
 							<a class="caption lfb btn btn-bricky slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Planos/Cobertura"
 							data-x="0"
-							data-y="340"
+							data-y="380"
 							data-speed="400"
 							data-start="3000"
 							data-easing="easeOutExpo">
@@ -132,7 +131,7 @@
 							data-speed="400"
 							data-start="1500"
 							data-easing="easeOutExpo">
-								Maior Rede Credenciada
+								<?php echo Valida::getMiniatura( "banner/patinhas.png", "Patinhas", 42, 30); ?>Maior Rede Credenciada
 							</div>
 							<div class="caption sft slide_subtitle slide_item_left"
 							data-x="0"
@@ -148,7 +147,7 @@
 							data-speed="400"
 							data-start="2500"
 							data-easing="easeOutExpo">
-								Estamos sempre perto de você.
+								<?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Estamos sempre perto de você.
 							</div>
 							<a class="caption sfb btn btn-purple slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Credenciados/ListarCredenciado"
 							data-x="0"

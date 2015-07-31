@@ -234,7 +234,9 @@
 								</li>
 								<li>
 									<p>
-										<i class="fa fa-phone"></i><strong>Telefone:</strong> <span style="color: white;">(82)3023-4747</span>
+                                                                            <i class="fa fa-phone"></i><strong>Telefone:</strong>
+                                                                            <span style="color: white;">(82)3023-4747 / AL<br>
+                                                                            (61) 4141-6424 / DF</span>
 									</p>
 								</li>
 								<li>
