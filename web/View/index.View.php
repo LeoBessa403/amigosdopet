@@ -1,6 +1,77 @@
 <section class="fullwidthbanner-container">
 				<div class="fullwidthabnner">
 					<ul>
+                                                <!-- start: SECOND SLIDE -->
+						<li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
+							<img src="<?php echo PASTASITE; ?>images/sliders/slidebg2.png"  style="background-color:rgb(246, 246, 246)" alt="slidebg1"  data-bgfit="cover" data-bgposition="left bottom" data-bgrepeat="no-repeat">
+							<div class="caption lft slide_title slide_item_left"
+							data-x="0"
+							data-y="50"
+							data-speed="400"
+							data-start="1500"
+							data-easing="easeOutExpo">
+								<?php echo Valida::getMiniatura( "banner/patinhas.png", "Patinhas", 42, 30); ?>Cuide com Carinho <br>do seu principal amigo.
+							</div>
+							<div class="caption lfl slide_subtitle slide_item_left"
+							data-x="0"
+							data-y="185"
+							data-speed="400"
+							data-start="2000"
+							data-easing="easeOutExpo">
+								Serviços Extras
+							</div>
+							<div class="caption lfr slide_desc slide_item_left"
+							data-x="0"
+							data-y="230"
+							data-speed="400"
+							data-start="2500"
+							data-easing="easeOutExpo">
+								<?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Adestramento<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Banho e Tosa<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Hotelzinho<br>
+                                                                <?php echo Valida::getMiniatura( "banner/patinhas2.png", "Patinhas", 20, 20); ?> Super Descontos<br>
+							</div>
+							<a class="caption lfb btn btn-bricky slide_btn slide_item_left" href="<?php echo PASTASITE; ?>Planos/Cobertura"
+							data-x="0"
+							data-y="380"
+							data-speed="400"
+							data-start="3000"
+							data-easing="easeOutExpo">
+								Confira
+							</a>
+							<div class="caption lft"
+							data-x="580"
+							data-y="10"
+							data-speed="500"
+							data-start="1000"
+							data-easing="easeOutBack">
+								<img src="<?php echo PASTASITE; ?>images/sliders/hotelzinho.png" alt="Image 1">
+							</div>
+							<div class="caption lfb"
+							data-x="850"
+							data-y="40"
+							data-speed="500"
+							data-start="1300"
+							data-easing="easeOutBack">
+								<img src="<?php echo PASTASITE; ?>images/sliders/banho.png" alt="Image 1">
+							</div>
+							<div class="caption lft"
+							data-x="800"
+							data-y="240"
+							data-speed="500"
+							data-start="1600"
+							data-easing="easeOutBack">
+								<img src="<?php echo PASTASITE; ?>images/sliders/desconto.png" alt="Image 1">
+							</div>
+							<div class="caption lfb"
+							data-x="510"
+							data-y="215"
+							data-speed="500"
+							data-start="1900"
+							data-easing="easeOutBack">
+								<img src="<?php echo PASTASITE; ?>images/sliders/adestramento.png" alt="Image 1">
+							</div>
+						</li>
 						<!-- start: FIRST SLIDE -->
 						<li data-transition="fade" data-slotamount="7" data-masterspeed="1500" >
 							<img src="<?php echo PASTASITE; ?>images/sliders/slidebg1.png"  style="background-color:rgb(246, 246, 246)" alt="slidebg1"  data-bgfit="cover" data-bgposition="left bottom" data-bgrepeat="no-repeat">
@@ -39,12 +110,12 @@
 								Contratar Agora
 							</a>
 							<div class="caption sfr"
-							data-x="620"
+							data-x="570"
 							data-y="50"
 							data-speed="500"
 							data-start="1000"
 							data-easing="easeOutExpo"  >
-								<img src="<?php echo PASTASITE; ?>images/sliders/free-woman.png" alt="Image 1">
+								<img src="<?php echo PASTASITE; ?>images/sliders/mordida.png" alt="Image 1">
 							</div>
 						</li>
 						<!-- end: FIRST SLIDE -->
