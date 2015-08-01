@@ -28,7 +28,7 @@
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>plugins/animate.css/animate.min.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main.css">
 		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/main-responsive.css">
-		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_gray.css" type="text/css" id="skin_color">
+		<link rel="stylesheet" href="<?php echo PASTASITE; ?>css/theme_yellow.css" type="text/css" id="skin_color">
                 <link rel="stylesheet" href="<?php echo PASTAADMIN;?>plugins/css3-animation/animations.css">
 		<!-- end: MAIN CSS -->
 		<!-- start: CSS REQUIRED FOR THIS PAGE ONLY -->
