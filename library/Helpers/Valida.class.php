@@ -375,5 +375,43 @@ class Valida {
 	imagedestroy($nova);
         return $nome_foto.".".$ext;
     }
+    
+    public static function getSeo($Title, $Descricao, $PalavrasChaves, $image = NULL){
+        
+	$pgTitle        = $Title;
+	$title 		= $this->Resumi($Title,'70');
+	$content 	= $this->Resumi($Descricao,'150');
+	$url 		= HOME.'/'.UrlAmigavel::$modulo.'/'.UrlAmigavel::$controller.'/'.UrlAmigavel::$action;
+	
+	$pasta 		= 'uploads/';
+	$default 	= 'imagem.padrao'; // Criar Imagem padão do Sistema
+	$image 		= ($image && file_exists($pasta.$image) && !is_dir($pasta.$image) ? HOME.'/'.$pasta.$image : $default);
+	
+	//NORMAL PAGE (GOOGLE)
+	$result  = '<title>'.$pgTitle.'</title> '."\n";
+	$result .= '<meta name="description" content="'.$content.'"/>'."\n";
+	$result .= '<meta name="robots" content="index, follow" />'."\n";
+	$result .= '<meta name="keywords" content="'.$PalavrasChaves.'" />'."\n";
+	$result .= '<meta name="author" content="Leo Bessa Desenvolvimentos" />'."\n";
+	$result .= '<meta name="language" content="pt_BR" />'."\n";
+	$result .= '<link rel="canonical" href="'.$url.'">'."\n";
+	$result .= "\n";
+	
+	//FACEBOOK
+	$result .= '<meta property="og:site_name" content="'.DESC.'" />'."\n";
+	$result .= '<meta property="og:locale" content="pt_BR" />'."\n";
+	$result .= '<meta property="og:title" content="'.$title.'" />'."\n";
+	$result .= '<meta property="og:description" content="'.$content.'" />'."\n";
+	$result .= '<meta property="og:image" content="'.$image.'" />'."\n";	
+	$result .= '<meta property="og:url" content="'.$url.'" />'."\n";
+	$result .= '<meta property="og:type" content="article" />'."\n";
+	$result .= "\n";
+	
+	//ITEM GROUP (TWITTER)
+	$result .= '<meta itemprop="name" content="'.$title.'">'."\n";
+	$result .= '<meta itemprop="description" content="'.$content.'">'."\n";
+	$result .= '<meta itemprop="url" content="'.$url.'">'."\n";	
+	return $result;		
+    }
         
  }
