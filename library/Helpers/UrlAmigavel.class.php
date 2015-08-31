@@ -58,6 +58,13 @@
         */
         public function pegaControllerAction(){
             $erro_404 = false;  
+            
+            if(self::$modulo != SITE && self::$modulo != ADMIN):
+                self::$modulo = "web";
+                self::$controller = "index";
+                self::$action = "index";     
+                $erro_404 = true;
+            endif;
                         
             if(self::$controller == ""):
                     self::$controller = "index";
@@ -78,6 +85,7 @@
             if(!file_exists($controller_path)):
                 $controller_path = "Controller/" . self::$controller . '.Controller.php';
             endif;
+            
             require_once($controller_path);
             $app = new self::$controller();
 
