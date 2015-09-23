@@ -52,11 +52,14 @@
                                                                                              <a href="'.PASTAADMIN.'Credenciado/ProcedimentosAtendidos/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-green tooltips" 
                                                                                                 data-original-title="Vincular Procedimentos" data-placement="left">
                                                                                                  <i class="clip-inject"></i>
-                                                                                             </a>
-                                                                                             <a href="'.PASTAADMIN.'Credenciado/ListarProcedimentosCredenciado/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-orange tooltips" 
+                                                                                             </a>';
+                                                                                    if(Valida::ValPerfil(PerfisAcesso::$ListarCredenciado)):
+                                                                                             $acao .= '<a href="'.PASTAADMIN.'Credenciado/ListarProcedimentosCredenciado/'.Valida::GeraParametro('cre/'.$res['id_credenciado']).'" class="btn btn-orange tooltips" 
                                                                                                 data-original-title="Procedimentos do Credenciado" data-placement="left">
                                                                                                  <i class="clip-inject"></i>
                                                                                              </a>';
+                                                                                    endif;
+                                                                                             
                                                                                     $grid->setColunas($res['nome_razao']);
                                                                                     $grid->setColunas($res['cpf_cnpj']);
                                                                                     $grid->setColunas($res['tel1']);

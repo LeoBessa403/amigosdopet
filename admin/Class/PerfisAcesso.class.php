@@ -9,10 +9,46 @@
 class PerfisAcesso {
     
     // Perfil Leo Bessa Total Acesso
-    public $SuperPerfil                          = "master";
+    public $SuperPerfil                             = "master";
     
-    public $ListarMembros                        = "administrador";
-    public $ListarMembrosRetiro                  = "geral";
+    public $CadastroCategoria                       = "";
+    public $ListarCategoria                         = "";
+    public $ExportarCategoria                       = "";
+    
+    
+    public $CadastroCliente                         = "";
+    public $ListarCliente                           = "";
+    public $ExportarCliente                         = "";
+    
+    
+    public $CadastroCredenciado                     = "";
+    const  ListarCredenciado                = "teste";
+    public $ProcedimentosAtendidos                  = "";
+    public $ListarProcedimentosCredenciado          = "";
+    
+    
+    public $CadastroPlano                           = "";
+    public $ListarPlano                             = "";
+    public $ProcedimentosPlano                      = "";
+    public $ListarProcedimentosPlano                = "";
+    public $ExportarPlano                           = "";
+    
+    
+    public $CadastroProcedimento                    = "";
+    public $ListarProcedimento                      = "";
+    public $ExportarProcedimento                    = "";
+    
+    
+    public $CadastroRaca                            = "";
+    public $ListarRaca                              = "";
+    
+    
+    public $CadastroTitular                         = "";
+    public $ListarTitular                           = "";
+    
+    
+    public $CadastroVeterinario                     = "";
+    public $ListarVeterinario                       = "";
     
     
     
