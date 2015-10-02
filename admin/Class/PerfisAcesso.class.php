@@ -8,8 +8,14 @@
  */
 class PerfisAcesso {
     
+    /**** PERFIS ****/
+    // 1 - MASTER
+    // 2 - ADMINISTRADOR
+    // 3 - CADASTRO CREDENCIADO
+    
+    
     // Perfil Leo Bessa Total Acesso
-    public $SuperPerfil                             = "master";
+    public $SuperPerfil                             = "1";
     
     public $CadastroCategoria                       = "";
     public $ListarCategoria                         = "";
@@ -22,10 +28,11 @@ class PerfisAcesso {
     
     
     public $CadastroCredenciado                     = "";
-    const  ListarCredenciado                = "teste";
+    public $ListarCredenciado                       = "";
     public $ProcedimentosAtendidos                  = "";
     public $ListarProcedimentosCredenciado          = "";
     
+    public $EdicaoCredenciado                       = "";
     
     public $CadastroPlano                           = "";
     public $ListarPlano                             = "";
