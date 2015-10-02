@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Máquina: cpmy0025.servidorwebfacil.com
--- Data de Criação: 23-Set-2015 às 10:29
+-- Data de Criação: 02-Out-2015 às 16:30
 -- Versão do servidor: 5.1.66-community-log
 -- versão do PHP: 5.2.17
 
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `tb_auditoria` (
   `id_user` int(10) unsigned DEFAULT NULL,
   `id_item` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id_auditoria`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1184 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1193 ;
 
 --
 -- Extraindo dados da tabela `tb_auditoria`
@@ -1228,7 +1228,16 @@ INSERT INTO `tb_auditoria` (`id_auditoria`, `tabela`, `realizado`, `operacao`, `
 (1180, 'tb_cliente', '2015-09-14 10:35:24', 'U', 'id_cliente==1;/id_pessoa==36;/id_raca==1;/nome==Zacarias;/cor==Branco,Marrom;/chip==0154;/carterinha==2015090101;/porte==PQ;/especie==Cachorro;/sexo==M;/nascimento==27/05/2015;/peso==5;/altura==0,45;/cadastro==2015-09-14 10:33:28', 'id_pessoa==36;/nome==Zacarias;/cor==Branco,Marrom;/especie==Cachorro;/porte==PQ;/altura==0,45;/sexo==M;/peso==5;/id_raca==2;/nascimento==27/05/2015;/chip==0154', 2, 1),
 (1181, 'tb_pessoa', '2015-09-15 13:29:08', 'I', '', 'nome_razao==FRANCISCO DE ASSIS SANTOS ANDRADE;/cpf_cnpj==802.937.194-20;/tipo_pessoa==F;/cliente==C;/fantasia==', 2, 37),
 (1182, 'tb_dados', '2015-09-15 13:29:08', 'I', '', 'tel1==(82) 8802-3786;/tel2==(82) 3221-4341;/tel3==;/email==bidog1@hotmail.com;/site==;/tel0800==;/id_pessoa==37', 2, 37),
-(1183, 'tb_endereco', '2015-09-15 13:29:08', 'I', '', 'endereco==RUA PEDRO PAULINO , Nº250;/complemento==;/cep==57.024-340;/bairro==POÇO;/cidade==MACEIÓ;/id_pessoa==37;/estado==AL', 2, 37);
+(1183, 'tb_endereco', '2015-09-15 13:29:08', 'I', '', 'endereco==RUA PEDRO PAULINO , Nº250;/complemento==;/cep==57.024-340;/bairro==POÇO;/cidade==MACEIÓ;/id_pessoa==37;/estado==AL', 2, 37),
+(1184, 'tb_pessoa', '2015-09-24 09:58:38', 'I', '', 'nome_razao==MARIA MARINA MUNIZ FARIA LOPES;/cpf_cnpj==341.153.154-15;/tipo_pessoa==F;/cliente==C;/fantasia==', 2, 38),
+(1185, 'tb_dados', '2015-09-24 09:58:38', 'I', '', 'tel1==(82) 9983-8218;/tel2==(82) 3325-9090;/tel3==;/email==;/site==;/tel0800==;/id_pessoa==38', 2, 38),
+(1186, 'tb_endereco', '2015-09-24 09:58:39', 'I', '', 'endereco==RUA JOSÉ ALVES MORGADO , 180 AP 101;/complemento==2 RUAS DEPOIS DA ESTRELA MARES GRILL CEREJEIRAS ;/cep==57.036-620;/bairro==JATIUCA ;/cidade==MACEIO ;/id_pessoa==38;/estado==AL', 2, 38),
+(1187, 'tb_pessoa', '2015-09-24 10:15:16', 'I', '', 'nome_razao==JOSE HUMBERTO COSTA DA SILVA;/cpf_cnpj==724.868.054-00;/tipo_pessoa==F;/cliente==C;/fantasia==', 2, 39),
+(1188, 'tb_dados', '2015-09-24 10:15:16', 'I', '', 'tel1==(82) 9985-9104;/tel2==;/tel3==;/email==betocostarmar@hotmail.com;/site==;/tel0800==;/id_pessoa==39', 2, 39),
+(1189, 'tb_endereco', '2015-09-24 10:15:16', 'I', '', 'endereco==RUA CAPELA , 173 , CRUZ DAS ALMAS;/complemento==;/cep==57.038-250;/bairro==CRUZ DAS ALMAS;/cidade==MACEIO;/id_pessoa==39;/estado==AL', 2, 39),
+(1190, 'tb_pessoa', '2015-09-24 10:17:51', 'I', '', 'nome_razao==THAMYRES FIDELIS TORRES SOARES;/cpf_cnpj==052.748.304-47;/tipo_pessoa==F;/cliente==C;/fantasia==', 2, 40),
+(1191, 'tb_dados', '2015-09-24 10:17:51', 'I', '', 'tel1==(82) 9991-3265;/tel2==;/tel3==;/email==;/site==;/tel0800==;/id_pessoa==40', 2, 40),
+(1192, 'tb_endereco', '2015-09-24 10:17:51', 'I', '', 'endereco==RUA JOAO CALHEIROS GATO , Nº 61;/complemento==;/cep==57.017-015;/bairro==LEVADA;/cidade==MACEIO ;/id_pessoa==40;/estado==AL', 2, 40);
 
 -- --------------------------------------------------------
 
@@ -1351,7 +1360,7 @@ CREATE TABLE IF NOT EXISTS `tb_dados` (
   `tel0800` varchar(15) NOT NULL,
   PRIMARY KEY (`id_dados`),
   KEY `tb_dados_FKIndex1` (`id_pessoa`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Extraindo dados da tabela `tb_dados`
@@ -1389,7 +1398,10 @@ INSERT INTO `tb_dados` (`id_dados`, `id_pessoa`, `tel1`, `tel2`, `tel3`, `email`
 (34, 34, '(82) 8858-4774', '', '', '', '', ''),
 (35, 35, '(82) 9667-1234', '(82) 3316-5060', '', 'dete.barros@hotmail.com', '', ''),
 (36, 36, '(82) 9638-9935', '', '', 'anna_patricia_12@hotmail.com', '', ''),
-(37, 37, '(82) 8802-3786', '(82) 3221-4341', '', 'bidog1@hotmail.com', '', '');
+(37, 37, '(82) 8802-3786', '(82) 3221-4341', '', 'bidog1@hotmail.com', '', ''),
+(38, 38, '(82) 9983-8218', '(82) 3325-9090', '', '', '', ''),
+(39, 39, '(82) 9985-9104', '', '', 'betocostarmar@hotmail.com', '', ''),
+(40, 40, '(82) 9991-3265', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1408,7 +1420,7 @@ CREATE TABLE IF NOT EXISTS `tb_endereco` (
   `estado` varchar(2) DEFAULT NULL,
   PRIMARY KEY (`id_endereco`),
   KEY `tb_endereco_FKIndex1` (`id_pessoa`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Extraindo dados da tabela `tb_endereco`
@@ -1446,7 +1458,10 @@ INSERT INTO `tb_endereco` (`id_endereco`, `id_pessoa`, `endereco`, `complemento`
 (34, 34, 'Av. PAULO FALCÃO', 'Nº 959', '57.036-390', 'JATIUCA', 'MACEIÓ', 'AL'),
 (35, 35, 'RUA DR. AFONSO DE MELO ,Nº 34', '', '33.165-060', 'JATIUCA', 'MACEIÓ', 'AL'),
 (36, 36, 'RUA CONSTANT PACHECO , Nº92 , AP - 404', '', '', 'CRUZ DAS ALMAS', 'MACEIÓ', 'AL'),
-(37, 37, 'RUA PEDRO PAULINO , Nº250', '', '57.024-340', 'POÇO', 'MACEIÓ', 'AL');
+(37, 37, 'RUA PEDRO PAULINO , Nº250', '', '57.024-340', 'POÇO', 'MACEIÓ', 'AL'),
+(38, 38, 'RUA JOSÉ ALVES MORGADO , 180 AP 101', '2 RUAS DEPOIS DA ESTRELA MARES GRILL CEREJEIRAS ', '57.036-620', 'JATIUCA ', 'MACEIO ', 'AL'),
+(39, 39, 'RUA CAPELA , 173 , CRUZ DAS ALMAS', '', '57.038-250', 'CRUZ DAS ALMAS', 'MACEIO', 'AL'),
+(40, 40, 'RUA JOAO CALHEIROS GATO , Nº 61', '', '57.017-015', 'LEVADA', 'MACEIO ', 'AL');
 
 -- --------------------------------------------------------
 
@@ -1475,46 +1490,52 @@ CREATE TABLE IF NOT EXISTS `tb_pessoa` (
   `tipo_pessoa` varchar(1) DEFAULT NULL,
   `cliente` varchar(1) NOT NULL,
   `fantasia` varchar(200) DEFAULT NULL,
+  `id_pessoa_pk` int(11) DEFAULT NULL,
+  `vendedor` varchar(1) DEFAULT NULL,
+  `responsavel` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_pessoa`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=41 ;
 
 --
 -- Extraindo dados da tabela `tb_pessoa`
 --
 
-INSERT INTO `tb_pessoa` (`id_pessoa`, `nome_razao`, `cpf_cnpj`, `tipo_pessoa`, `cliente`, `fantasia`) VALUES
-(1, 'Focinhos e Patinhas', '', 'J', '', ''),
-(2, 'CaoKia', '16.895.665/0001-40', 'J', '', NULL),
-(4, 'CliniKao', '', 'J', '', ''),
-(7, 'LUCIANA RENATA DA SILVA ROCHA', '040.581.874-25', 'F', 'C', NULL),
-(8, 'ALINE MARIA CAVALCANTE DA SILVA', '077.035.914-08', 'F', 'C', NULL),
-(9, 'SONIA MARIA ACIOLI DE BARROS', '228.680.464-87', 'F', 'C', NULL),
-(10, 'ROSA MARIA LIRA DOS ANJOS', '287.292.184-20', 'F', 'C', NULL),
-(12, 'Entre Cães e Gatos', '10.829.322/0001-00', 'J', '', ''),
-(13, 'Clinica Veterinária e Pet Shop Feito Cão e Gato ', '', 'J', '', ''),
-(14, 'EcoPet / Filial ', '', 'J', '', ''),
-(15, 'EcoPet / Matriz ', '', 'J', '', ''),
-(16, 'SAULO DE ANDRADE VIEIRA', '', 'F', '', NULL),
-(17, 'SEMÍRAMIS CASTRO', '', 'F', '', NULL),
-(18, 'VICTOR ALMEIDA ', '', 'F', '', NULL),
-(19, 'KELLY CUNHA VITAL', '', 'F', '', NULL),
-(20, 'BRUNA C. SAMPAIO', '', 'F', '', NULL),
-(21, 'JANAINA DE S. RODRIGUES', '', 'F', '', NULL),
-(22, 'ALISSON DE ARAUJO LESSA', '', 'F', '', NULL),
-(23, 'AURELIANO PEREIRA DA ROCHA FILHO', '084.947.354-38', 'F', 'C', NULL),
-(24, 'SUANE CONCEIÇÃO NOGUEIRA MENDONÇA ', '008.528.652-44', 'F', 'C', NULL),
-(25, 'JORDANIA DE ANDRADE SANTOS ', '024.712.864-37', 'F', 'C', NULL),
-(26, 'DANIELA DE ARAUJO TENORIO', '986.404.704-30', 'F', 'C', NULL),
-(27, 'JERONIMO NASCIMENTO DA SILVA JUNIOR', '', 'F', 'C', NULL),
-(28, 'KATYUSCIA KARINE VIEIRA DOS SANTOS', '263.151.968-02', 'F', 'C', NULL),
-(29, 'JOSIELMA FEITOSA TENORIO CORREIA ', '051.499.124-09', 'F', 'C', NULL),
-(30, 'MARY STEFANNY LEITE GONÇALVES', '033.464.904-83', 'F', 'C', NULL),
-(32, 'JOSÉ ADILSON MENDES DA COSTA ', '411.814.504-97', 'F', 'C', NULL),
-(33, 'JOSÉ SEBASTIÃO DA SILVA ', '066.717.994-15', 'F', 'C', NULL),
-(34, 'UBIRÂNILDA ALVES  DANTAS', '410.654.254-49', 'F', 'C', NULL),
-(35, 'ROSETE ALVES BARROS', '347.180.874-49', 'F', 'C', NULL),
-(36, 'ANNA PATRICIA DE ESPÍNDOLA SILVA', '095.222.834-36', 'F', 'C', NULL),
-(37, 'FRANCISCO DE ASSIS SANTOS ANDRADE', '802.937.194-20', 'F', 'C', NULL);
+INSERT INTO `tb_pessoa` (`id_pessoa`, `nome_razao`, `cpf_cnpj`, `tipo_pessoa`, `cliente`, `fantasia`, `id_pessoa_pk`, `vendedor`, `responsavel`) VALUES
+(1, 'Focinhos e Patinhas', '', 'J', '', '', 0, '', ''),
+(2, 'CaoKia', '16.895.665/0001-40', 'J', '', NULL, 0, '', ''),
+(4, 'CliniKao', '', 'J', '', '', 0, '', ''),
+(7, 'LUCIANA RENATA DA SILVA ROCHA', '040.581.874-25', 'F', 'C', NULL, 0, '', ''),
+(8, 'ALINE MARIA CAVALCANTE DA SILVA', '077.035.914-08', 'F', 'C', NULL, 0, '', ''),
+(9, 'SONIA MARIA ACIOLI DE BARROS', '228.680.464-87', 'F', 'C', NULL, 0, '', ''),
+(10, 'ROSA MARIA LIRA DOS ANJOS', '287.292.184-20', 'F', 'C', NULL, 0, '', ''),
+(12, 'Entre Cães e Gatos', '10.829.322/0001-00', 'J', '', '', 0, '', ''),
+(13, 'Clinica Veterinária e Pet Shop Feito Cão e Gato ', '', 'J', '', '', 0, '', ''),
+(14, 'EcoPet / Filial ', '', 'J', '', '', 0, '', ''),
+(15, 'EcoPet / Matriz ', '', 'J', '', '', 0, '', ''),
+(16, 'SAULO DE ANDRADE VIEIRA', '', 'F', '', NULL, 0, '', ''),
+(17, 'SEMÍRAMIS CASTRO', '', 'F', '', NULL, 0, '', ''),
+(18, 'VICTOR ALMEIDA ', '', 'F', '', NULL, 0, '', ''),
+(19, 'KELLY CUNHA VITAL', '', 'F', '', NULL, 0, '', ''),
+(20, 'BRUNA C. SAMPAIO', '', 'F', '', NULL, 0, '', ''),
+(21, 'JANAINA DE S. RODRIGUES', '', 'F', '', NULL, 0, '', ''),
+(22, 'ALISSON DE ARAUJO LESSA', '', 'F', '', NULL, 0, '', ''),
+(23, 'AURELIANO PEREIRA DA ROCHA FILHO', '084.947.354-38', 'F', 'C', NULL, 0, '', ''),
+(24, 'SUANE CONCEIÇÃO NOGUEIRA MENDONÇA ', '008.528.652-44', 'F', 'C', NULL, 0, '', ''),
+(25, 'JORDANIA DE ANDRADE SANTOS ', '024.712.864-37', 'F', 'C', NULL, 0, '', ''),
+(26, 'DANIELA DE ARAUJO TENORIO', '986.404.704-30', 'F', 'C', NULL, 0, '', ''),
+(27, 'JERONIMO NASCIMENTO DA SILVA JUNIOR', '', 'F', 'C', NULL, 0, '', ''),
+(28, 'KATYUSCIA KARINE VIEIRA DOS SANTOS', '263.151.968-02', 'F', 'C', NULL, 0, '', ''),
+(29, 'JOSIELMA FEITOSA TENORIO CORREIA ', '051.499.124-09', 'F', 'C', NULL, 0, '', ''),
+(30, 'MARY STEFANNY LEITE GONÇALVES', '033.464.904-83', 'F', 'C', NULL, 0, '', ''),
+(32, 'JOSÉ ADILSON MENDES DA COSTA ', '411.814.504-97', 'F', 'C', NULL, 0, '', ''),
+(33, 'JOSÉ SEBASTIÃO DA SILVA ', '066.717.994-15', 'F', 'C', NULL, 0, '', ''),
+(34, 'UBIRÂNILDA ALVES  DANTAS', '410.654.254-49', 'F', 'C', NULL, 0, '', ''),
+(35, 'ROSETE ALVES BARROS', '347.180.874-49', 'F', 'C', NULL, 0, '', ''),
+(36, 'ANNA PATRICIA DE ESPÍNDOLA SILVA', '095.222.834-36', 'F', 'C', NULL, 0, '', ''),
+(37, 'FRANCISCO DE ASSIS SANTOS ANDRADE', '802.937.194-20', 'F', 'C', NULL, 0, '', ''),
+(38, 'MARIA MARINA MUNIZ FARIA LOPES', '341.153.154-15', 'F', 'C', NULL, 0, '', ''),
+(39, 'JOSE HUMBERTO COSTA DA SILVA', '724.868.054-00', 'F', 'C', NULL, 0, '', ''),
+(40, 'THAMYRES FIDELIS TORRES SOARES', '052.748.304-47', 'F', 'C', NULL, 0, '', '');
 
 -- --------------------------------------------------------
 
@@ -2595,8 +2616,8 @@ CREATE TABLE IF NOT EXISTS `tb_user` (
 --
 
 INSERT INTO `tb_user` (`id`, `nome`, `login`, `senha`, `code`, `perfil`) VALUES
-(1, 'Leonardo M C Bessa', 'leobessa', '123456', '123456', 'administrador, master'),
-(2, 'Administrador Amigos do Pet', 'amigosdopet', 'pet12345', 'pet12345', 'administrador, master');
+(1, 'Leonardo M C Bessa', 'leobessa', '123456', '123456', '1'),
+(2, 'Administrador Amigos do Pet', 'amigosdopet', 'pet12345', 'pet12345', '1');
 
 -- --------------------------------------------------------
 
