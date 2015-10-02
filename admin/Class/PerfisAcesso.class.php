@@ -58,5 +58,9 @@ class PerfisAcesso {
     public $ListarVeterinario                       = "";
     
     
+    public $CadastroVendedor                        = "";
+    public $ListarVendedor                          = "";
+    
+    
     
 }

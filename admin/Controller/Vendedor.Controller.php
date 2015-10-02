@@ -1,25 +1,26 @@
 <?php
 
-class Credenciado{ 
+class Vendedor{ 
     
     public $result;
     public $resultAlt;
     public $form;
     public $veterinarios;
-    public $credenciado;
+    public $vendedor;
     public $categorias;
     public $id_cre;
     public $procedimentos;
     public $proc_atendidas;
             
-    function CadastroCredenciado(){    
+    function CadastroVendedor(){    
         
-        $id = "cadastroCredenciado";
+        $id = "cadastroVendedor";
         
         if(!empty($_POST[$id])):
                        
             $dados = $_POST; 
-            $dados['id_veterinario'] = $dados['id_veterinario'][0];
+            $dados['vendedor'] = "V";
+            $dados['id_pessoa_fk'] = $dados['id_pessoa_fk'][0];
             if(isset($dados["tipo"]) && $dados["tipo"] != ""):
                 $dados["tipo_pessoa"] = "F";
                 $dados["cpf_cnpj"] = $dados["cpf"];
@@ -27,26 +28,20 @@ class Credenciado{
                 $dados["tipo_pessoa"] = "J";
                 $dados["cpf_cnpj"] = $dados["cnpj"];
             endif;
-            if(!isset($dados["funcionamento_de"])):
-                $dados["funcionamento_de"] = "";
-            endif;
-            if(!isset($dados["funcionamento_ate"])):
-                $dados["funcionamento_ate"] = "";
-            endif;
-
+           
             unset($dados[$id],$dados["cpf"],$dados["cnpj"]); 
         
-            if(!empty($_POST['id_credenciado'])):
-                    $cred = CredenciadoModel::PesquisaUmCredenciado($_POST['id_credenciado']); 
+            if(!empty($_POST['id_vendedor'])):
+                    $cred = VendedorModel::PesquisaUmVendedor($_POST['id_vendedor']); 
                     $dados['id_pessoa'] = $cred['id_pessoa'];
                     $pessoa   = Valida::RecebiVariavel(Constantes::PESSOA_CAMPOS, $dados);
                     $dado     = Valida::RecebiVariavel(Constantes::DADOS_CAMPOS, $dados);
                     $endereco = Valida::RecebiVariavel(Constantes::ENDERECO_CAMPOS, $dados);
                     $endereco['estado'] = $dados['id_regiao'][0];                    
                     $dados['id_regiao'] = $cred['id_regiao'];
-                    $credenciado = Valida::RecebiVariavel(Constantes::CREDENCIADO_CAMPOS, $dados);                    
+                    $vendedor = Valida::RecebiVariavel(Constantes::VENDEDOR_CAMPOS, $dados);                    
                              
-                    $credenc = CredenciadoModel::AtualizaCredenciado($credenciado, $cred['id_credenciado']);
+                    $credenc = VendedorModel::AtualizaVendedor($vendedor, $cred['id_vendedor']);
                     $pess  = PessoaModel::AtualizaPessoa($pessoa, $cred['id_pessoa']);
                     $dad   = DadosModel::AtualizaDados($dado, $cred['id_dados']);
                     $end   = EnderecoModel::AtualizaEndereco($endereco, $cred['id_endereco']);
@@ -55,22 +50,23 @@ class Credenciado{
                        $this->resultAlt = true;
                     endif;
             else:
+                
                     $pessoa = Valida::RecebiVariavel(Constantes::PESSOA_CAMPOS, $dados);
                     $idPessoa = PessoaModel::CadastraPessoa($pessoa);
                     $dados['id_pessoa'] = $idPessoa;
                     
-                    $credenciado = Valida::RecebiVariavel(Constantes::CREDENCIADO_CAMPOS, $dados);
-                    $credenciado["cadastro"] = Valida::DataDB(Valida::DataAtual());
-                    $credenciado["id_regiao"] = $credenciado["id_regiao"][0];
+                    $vendedor = Valida::RecebiVariavel(Constantes::CREDENCIADO_CAMPOS, $dados);
+                    $vendedor["cadastro"] = Valida::DataDB(Valida::DataAtual());
+                    $vendedor["id_regiao"] = $vendedor["id_regiao"][0];
                     
-                    $idCredenciado = CredenciadoModel::CadastraCredenciado($credenciado);
+                    $idVendedor = VendedorModel::CadastraVendedor($vendedor);
 
-                    if($idCredenciado):
+                    if($idVendedor):
                             $dado = Valida::RecebiVariavel(Constantes::DADOS_CAMPOS, $dados);
                             $idDados = DadosModel::CadastraDados($dado);                        
 
                             $endereco = Valida::RecebiVariavel(Constantes::ENDERECO_CAMPOS, $dados);
-                            $endereco['estado'] = $credenciado['id_regiao'][0];
+                            $endereco['estado'] = $vendedor['id_regiao'][0];
 
                             $idEndereco = EnderecoModel::CadastraEndereco($endereco);
 
@@ -81,14 +77,10 @@ class Credenciado{
             endif;
         endif;  
         
-        $id_cre = UrlAmigavel::PegaParametro("cre");
+        $id_vend = UrlAmigavel::PegaParametro("vend");
         $res = array();
-        if($id_cre):
-            $res  = CredenciadoModel::PesquisaUmCredenciado($id_cre);
-            if(isset($res['id_veterinario'])):
-                $res2 = VeterinarioModel::PesquisaUmVeterinario($res['id_veterinario']);
-                $res['veterinario'] = $res2['nome_razao'];
-            endif;
+        if($id_vend):
+            $res  = VendedorModel::PesquisaUmVendedor($id_vend);
         endif;   
         
         $checked = "";
@@ -105,7 +97,7 @@ class Credenciado{
             endif;
         endif;
         
-       $formulario = new Form($id, "admin/Credenciado/CadastroCredenciado");
+       $formulario = new Form($id, "admin/Vendedor/CadastroVendedor");
        $formulario->setValor($res);
 
        $label_options = array("Física","Jurídica","azul","verde");
@@ -147,43 +139,6 @@ class Credenciado{
                 ->setInfo("Caso seja Pessoa Jurídica")
                 ->CriaInpunt();
          
-         $label_options = array("Segunda" => "Segunda","Terça" => "Terça","Quarta" => "Quarta","Quinta" => "Quinta",
-                                "Sexta" => "Sexta","Sábado" => "Sábado","Domingo" => "Domingo");
-         $formulario
-                 ->setId("funcionamento_de")
-                 ->setLabel("Dias de Funcionamento de:")
-                 ->setType("radio")
-                 ->setTamanhoInput(6)
-                 ->setLabelCheckRadio($label_options)
-                 ->CriaInpunt();
-         
-         $formulario
-                 ->setId("funcionamento_ate")
-                 ->setLabel("Até:")
-                 ->setType("radio")
-                 ->setTamanhoInput(6)
-                 ->setLabelCheckRadio($label_options)
-                 ->CriaInpunt();
-         
-         $formulario
-                 ->setId("horario_abertura")
-                 ->setInfo("Horário de Abertura.")
-                  ->setTamanhoInput(6)
-                 ->setClasses("horas")
-                 ->setIcon("clip-clock-2","dir")
-                 ->setLabel("Funcionamento de:")
-                 ->CriaInpunt();
-       
-         $formulario
-                 ->setId("horario_fechamento")
-                 ->setInfo("Horário de Fechamento.")
-                  ->setTamanhoInput(6)
-                 ->setIcon("clip-clock-2","dir")
-                 ->setClasses("horas")
-                 ->setLabel("Até:")
-                 ->CriaInpunt();
-       
-
          $formulario
                 ->setId("endereco")  
                 ->setIcon("clip-home-2") 
@@ -268,16 +223,19 @@ class Credenciado{
                 ->setClasses("email")
                 ->CriaInpunt();
          
-          $veterinarios = VeterinarioModel::PesquisaVeterinarioSelect();
-          $vets = array(""=>"Selecione um Veterinário");
-          foreach ($veterinarios as $value) {
-              $vets[$value["id"]] = $value["nome"];
+          $vendedores = VendedorModel::PesquisaVendedorSelect();
+          
+          $vend = array(""=>"Selecione um Responsável");
+          foreach ($vendedores as $value) {
+              if($id_vend != $value["credenciado"]):
+                $vend[$value["id"]] = $value["nome"];
+              endif;
           }
           $formulario
-                ->setId("id_veterinario")
+                ->setId("id_pessoa_fk")
                 ->setType("select") 
-                ->setLabel("Veterinário Responsável")
-                ->setOptions($vets)
+                ->setLabel("Vendedor Responsável")
+                ->setOptions($vend)
                 ->CriaInpunt();
           
           $formulario
@@ -286,84 +244,21 @@ class Credenciado{
                 ->setLabel("Observação")
                 ->CriaInpunt();
               
-          if($id_cre):
+          if($id_vend):
                 $formulario
                         ->setType("hidden")
-                        ->setId("id_credenciado")
-                        ->setValues($id_cre)
+                        ->setId("id_vendedor")
+                        ->setValues($id_vend)
                         ->CriaInpunt();
           endif;
         
         $this->form = $formulario->finalizaForm(); 
     }
     
-    function ListarCredenciado(){
+    function ListarVendedor(){
         
-        // CADASTRA OS PROCEDIMENTOS VINCULADOS AO CREDENCIADO
-        if(!empty($_POST['vincula-procedimentos-credenciado'])):
-            $dados = $_POST;
-            $proc['id_credenciado'] = $dados["id_credenciado"];
-            unset($dados["id_credenciado"],$dados['vincula-procedimentos-credenciado']);
-            $ok = "";
-            $proc_atendidas = CredenciadoModel::PesquisaTodosProcedimentosAtendidosCredenciado($proc['id_credenciado']); 
-            $proc_ja_atendidos = array();
-            foreach ($proc_atendidas as $key => $value) {            
-                $proc_ja_atendidos[$value['id_procedimento']] = $value['preco_apagar'];
-            } 
-            
-            foreach ($dados as $key => $value) {
-                if($value != ""):                    
-                    if(strpos($value,"R$") !== false):
-                        $proc['id_procedimento'] = str_replace("valor-", "", $key);
-                        $proc['preco_apagar'] = Valida::formataMoedaBanco($value);
-                        
-                        if(array_key_exists($proc['id_procedimento'], $proc_ja_atendidos)):
-                            unset($proc_ja_atendidos[$proc['id_procedimento']]);
-                        endif;
-                        
-                        $cadastrado = CredenciadoModel::PesquisaProcedimentoAtendidoCredenciado($proc['id_credenciado'], $proc['id_procedimento']);
-                        if(empty($cadastrado)):
-                            $ok = CredenciadoModel::CadastraProcedimentosAtendidosCredenciado($proc);
-                        else:
-                            $valor['preco_apagar'] = $proc['preco_apagar'];
-                            $ok = CredenciadoModel::AtualizaProcedimentoAtendidoCredenciado($valor, $proc['id_credenciado'], $proc['id_procedimento']);
-                        endif;
-                    endif;
-                endif;
-            }
-           
-            foreach ($proc_ja_atendidos as $id => $nao) {
-                CredenciadoModel::DeletaProcedimentoCredenciado($proc['id_credenciado'], $id);
-            }
-            
-            $this->result = $ok;
-        endif;
-        
-        $this->result = CredenciadoModel::pesquisaCredenciado();
-        $this->veterinarios = VeterinarioModel::PesquisaVinculaVeterinario();
+        $this->result = VendedorModel::pesquisaVendedor();
     }    
         
-    function ProcedimentosAtendidos(){
-           
-        $id = "procedimentosAtendidos";
-        
-        $this->id_cre         = UrlAmigavel::PegaParametro("cre");        
-        $this->credenciado    = CredenciadoModel::PesquisaRazaoCredenciadoId($this->id_cre); 
-        $this->procedimentos  = ProcedimentoModel::PesquisaProcedimento();
-        $this->categorias     = CategoriaModel::PesquisaCategoriaVinculadas();
-        $proc_atendidas       = CredenciadoModel::PesquisaTodosProcedimentosAtendidosCredenciado($this->id_cre); 
-        $this->proc_atendidas = array();
-        
-        foreach ($proc_atendidas as $key => $value) {            
-            $this->proc_atendidas[$value['id_procedimento']] = $value['preco_apagar'];
-        }        
-    }
-    
-    function ListarProcedimentosCredenciado(){
-           
-        $id_cre         = UrlAmigavel::PegaParametro("cre");        
-        $this->result   = CredenciadoModel::PesquisaTodosProcedimentosCredenciado($id_cre);
-        $this->credenciado = CredenciadoModel::PesquisaUmCredenciado($id_cre);
-    }
     
 }
