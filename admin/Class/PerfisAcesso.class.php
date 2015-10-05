@@ -32,8 +32,6 @@ class PerfisAcesso {
     public $ProcedimentosAtendidos                  = "";
     public $ListarProcedimentosCredenciado          = "";
     
-    public $EdicaoCredenciado                       = "";
-    
     public $CadastroPlano                           = "";
     public $ListarPlano                             = "";
     public $ProcedimentosPlano                      = "";
