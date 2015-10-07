@@ -41,14 +41,17 @@
                                                                             $grid->criaGrid();
                                                                              
                                                                             foreach ($result as $res): 
-                                                                                $acao = '<a href="'.PASTAADMIN.'Titular/CadastroTitular/'.Valida::GeraParametro('cli/'.$res['id_pessoa']).'" class="btn btn-primary tooltips" 
-                                                                                               data-original-title="Editar Registro" data-placement="top">
-                                                                                                <i class="fa fa-clipboard"></i>
-                                                                                            </a>
-                                                                                            <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_pessoa'].'" 
-                                                                                               href="#Titular" data-original-title="Excluir Registro" data-placement="top">
-                                                                                                <i class="fa fa-trash-o"></i>
-                                                                                            </a>';
+                                                                                $acao = "";
+                                                                                if(Valida::ValPerfil("EdicaoTitular")):
+                                                                                    $acao = '<a href="'.PASTAADMIN.'Titular/CadastroTitular/'.Valida::GeraParametro('cli/'.$res['id_pessoa']).'" class="btn btn-primary tooltips" 
+                                                                                                   data-original-title="Editar Registro" data-placement="top">
+                                                                                                    <i class="fa fa-clipboard"></i>
+                                                                                                </a>
+                                                                                                <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_pessoa'].'" 
+                                                                                                   href="#Titular" data-original-title="Excluir Registro" data-placement="top">
+                                                                                                    <i class="fa fa-trash-o"></i>
+                                                                                                </a>';
+                                                                                endif;
                                                                                 $grid->setColunas($res['nome_razao']);
                                                                                 $grid->setColunas($res['tel1']." / ".$res['tel2']);
                                                                                 $grid->setColunas($res['cidade']."-".$res['estado']);

@@ -11,29 +11,31 @@ class Cliente{
         $id = "cadastroCliente";
         
         if(!empty($_POST[$id])):
-            
-            $dados = $_POST; 
-            unset($dados[$id]); 
-            if(!empty($dados['cor'])):
-                $dados['cor']       = implode(",", $dados['cor']);
-            endif;
-            $dados['especie']   = $dados['especie'][0];
-            $dados['porte']     = $dados['porte'][0];
-            $dados['sexo']      = $dados['sexo'][0];
-            $dados['id_raca']   = $dados['id_raca'][0];
-            $dados['id_pessoa']   = $dados['id_pessoa'][0];
-        
-            if(!empty($_POST['id_cliente'])):
-                
-                $id = $dados['id_cliente'];
-                unset($dados['id_cliente']);
-                
-                $ok = ClienteModel::AtualizaCliente($dados, $id);
-                    
-                if($ok):
-                    $this->resultAlt = true;
+            if(Valida::ValPerfil("EdicaoCliente")):
+                $dados = $_POST; 
+                unset($dados[$id]); 
+                if(!empty($dados['cor'])):
+                    $dados['cor']       = implode(",", $dados['cor']);
                 endif;
-            else:
+                $dados['especie']   = $dados['especie'][0];
+                $dados['porte']     = $dados['porte'][0];
+                $dados['sexo']      = $dados['sexo'][0];
+                $dados['id_raca']   = $dados['id_raca'][0];
+                $dados['id_pessoa']   = $dados['id_pessoa'][0];
+
+                if(!empty($_POST['id_cliente'])):
+
+                    $id = $dados['id_cliente'];
+                    unset($dados['id_cliente']);
+
+                    $ok = ClienteModel::AtualizaCliente($dados, $id);
+
+                    if($ok):
+                        $this->resultAlt = true;
+                    endif;
+                endif;
+            endif;
+        else:
 
                 $dados['cadastro']  = Valida::DataDB(Valida::DataAtual('d/m/Y'));
 
@@ -54,7 +56,6 @@ class Cliente{
                             }                        
                          }
                         $this->result = true;
-                    endif;
                 endif;
             endif;
         endif;
@@ -62,7 +63,7 @@ class Cliente{
         $id_cli = UrlAmigavel::PegaParametro("cli");
         $res = array();
         $limite = 0;
-        if($id_cli):
+        if($id_cli && Valida::ValPerfil("EdicaoCliente")):
             $res = ClienteModel::PesquisaUmCliente($id_cli);
             $res['cor'] = explode(",",$res['cor']);
             $fotos = ClienteModel::PesquisaFotosUmCliente($id_cli);

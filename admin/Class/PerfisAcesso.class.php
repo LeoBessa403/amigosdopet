@@ -11,53 +11,56 @@ class PerfisAcesso {
     /**** PERFIS ****/
     // 1 - MASTER
     // 2 - ADMINISTRADOR
-    // 3 - CADASTRO CREDENCIADO
+    // 3 - USUARIO CADASTRANTE
     
     
     // Perfil Leo Bessa Total Acesso
     public $SuperPerfil                             = "1";
     
-    public $CadastroCategoria                       = "";
-    public $ListarCategoria                         = "";
-    public $ExportarCategoria                       = "";
+    public $CadastroCategoria                       = "3";
+    public $ListarCategoria                         = "3";
+    public $ExportarCategoria                       = "3";
     
     
-    public $CadastroCliente                         = "";
-    public $ListarCliente                           = "";
-    public $ExportarCliente                         = "";
+    public $CadastroCliente                         = "3";
+    public $ListarCliente                           = "3";
+    public $ExportarCliente                         = "3";
+    public $EdicaoCliente                           = "";
     
     
-    public $CadastroCredenciado                     = "";
-    public $ListarCredenciado                       = "";
-    public $ProcedimentosAtendidos                  = "";
-    public $ListarProcedimentosCredenciado          = "";
+    public $CadastroCredenciado                     = "3";
+    public $ListarCredenciado                       = "3";
+    public $ProcedimentosAtendidos                  = "3";
+    public $ListarProcedimentosCredenciado          = "3";
     
-    public $CadastroPlano                           = "";
-    public $ListarPlano                             = "";
-    public $ProcedimentosPlano                      = "";
-    public $ListarProcedimentosPlano                = "";
-    public $ExportarPlano                           = "";
-    
-    
-    public $CadastroProcedimento                    = "";
-    public $ListarProcedimento                      = "";
-    public $ExportarProcedimento                    = "";
+    public $CadastroPlano                           = "3";
+    public $ListarPlano                             = "3";
+    public $ProcedimentosPlano                      = "3";
+    public $ListarProcedimentosPlano                = "3";
+    public $ExportarPlano                           = "3";
     
     
-    public $CadastroRaca                            = "";
-    public $ListarRaca                              = "";
+    public $CadastroProcedimento                    = "3";
+    public $ListarProcedimento                      = "3";
+    public $ExportarProcedimento                    = "3";
     
     
-    public $CadastroTitular                         = "";
-    public $ListarTitular                           = "";
+    public $CadastroRaca                            = "3";
+    public $ListarRaca                              = "3";
     
     
-    public $CadastroVeterinario                     = "";
-    public $ListarVeterinario                       = "";
+    public $CadastroTitular                         = "3";
+    public $EdicaoTitular                           = "";
+    public $ExcluirTitular                          = "";
+    public $ListarTitular                           = "3";
     
     
-    public $CadastroVendedor                        = "";
-    public $ListarVendedor                          = "";
+    public $CadastroVeterinario                     = "3";
+    public $ListarVeterinario                       = "3";
+    
+    
+    public $CadastroVendedor                        = "3";
+    public $ListarVendedor                          = "3";
     
     
     

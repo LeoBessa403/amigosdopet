@@ -26,7 +26,7 @@ class Titular{
             unset($dados[$id],$dados["cpf"],$dados["cnpj"]); 
         
             if(!empty($_POST['id_pessoa'])):
-                
+                if(Valida::ValPerfil("EdicaoTitular")):
                     $client = TitularModel::PesquisaUmTitular($_POST['id_pessoa']);
                     $dados[Constantes::PESSOA_CHAVE_PRIMARIA] = $client[Constantes::PESSOA_CHAVE_PRIMARIA];
                     $pessoa   = Valida::RecebiVariavel(Constantes::PESSOA_CAMPOS, $dados);
@@ -41,6 +41,7 @@ class Titular{
                     if($pess && $dad && $end):
                         $this->resultAlt = true;
                     endif;
+                endif;
             else:
                                        
                     $pessoa = Valida::RecebiVariavel(Constantes::PESSOA_CAMPOS, $dados);                    
@@ -66,7 +67,7 @@ class Titular{
         
         $id_cli = UrlAmigavel::PegaParametro("cli");
         $res = array();
-        if($id_cli):
+        if($id_cli && Valida::ValPerfil("EdicaoTitular")):
             $res = TitularModel::PesquisaUmTitular($id_cli);
         endif;
         

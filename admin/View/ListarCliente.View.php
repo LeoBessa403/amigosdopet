@@ -40,20 +40,24 @@
                                                                             $grid->criaBotaoExportacao('Cliente', 'ExportarCliente');
                                                                             $grid->setColunasIndeces($arrColunas);
                                                                             $grid->criaGrid();
-
+                                                                            
                                                                             foreach ($result as $res): 
-                                                                                $acao = '<a href="'.PASTAADMIN.'Cliente/CadastroCliente/'.Valida::GeraParametro('cli/'.$res['id_cliente']).'" class="btn btn-primary tooltips" 
-                                                                                               data-original-title="Editar Registro" data-placement="top">
-                                                                                                <i class="fa fa-clipboard"></i>
-                                                                                            </a>
-                                                                                            <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_cliente'].'" 
-                                                                                               href="#Cliente" data-original-title="Excluir Registro" data-placement="top">
-                                                                                                <i class="fa fa-trash-o"></i>
-                                                                                            </a>
-                                                                                            <a data-toggle="modal" role="button" class="btn btn-med-grey fotos" id="'.$res['id_cliente'].'" 
-                                                                                               href="#Foto" title="'.$res['nome'].'" data-placement="top">
-                                                                                                <i class="fa fa-camera"></i>
-                                                                                            </a>';
+                                                                                $acao = "";
+                                                                                if(Valida::ValPerfil("EdicaoTitular")):
+                                                                                    $acao = '<a href="'.PASTAADMIN.'Cliente/CadastroCliente/'.Valida::GeraParametro('cli/'.$res['id_cliente']).'" class="btn btn-primary tooltips" 
+                                                                                                   data-original-title="Editar Registro" data-placement="top">
+                                                                                                    <i class="fa fa-clipboard"></i>
+                                                                                                </a>
+                                                                                                <a data-toggle="modal" role="button" class="btn btn-bricky tooltips deleta" id="'.$res['id_cliente'].'" 
+                                                                                                   href="#Cliente" data-original-title="Excluir Registro" data-placement="top">
+                                                                                                    <i class="fa fa-trash-o"></i>
+                                                                                                </a>';
+                                                                                               
+                                                                                endif;
+                                                                                 $acao .= '<a data-toggle="modal" role="button" class="btn btn-med-grey fotos" id="'.$res['id_cliente'].'" 
+                                                                                                   href="#Foto" title="'.$res['nome'].'" data-placement="top">
+                                                                                                    <i class="fa fa-camera"></i>
+                                                                                                </a>';
                                                                                 $grid->setColunas($res['nome']);
                                                                                 $grid->setColunas($res['raca']);
                                                                                 $grid->setColunas($res['carterinha']);

@@ -52,24 +52,27 @@ class ClienteModel{
     }
     
     public static function DeletaCliente($id){
-         // NÃO PODE EXCLUIR SE TIVER VINCULO COM ALGUM PLANO OU TITULAR
-//        $tabela = self::tabela." pes"              
-//                . " inner join ".DadosModel::tabela." dad"
-//                . " on dad.".PessoaModel::chave_primaria." = pes.".PessoaModel::chave_primaria
-//                . " inner join ".EnderecoModel::tabela." end"
-//                . " on end.".PessoaModel::chave_primaria." = pes.".PessoaModel::chave_primaria;
-//        
-//        $campos = "pes.id_pessoa, dad.id_dados, end.id_endereco";
-//        
-//        $pesquisa = new Pesquisa();
-//        $pesquisa->Pesquisar($tabela,"where pes.".PessoaModel::chave_primaria." = :id","id={$id}",$campos);
-        $deleta = new Deleta();
-//        foreach ($pesquisa->getResult() as $res):
-            $deleta->Deletar(Constantes::CLIENTE_TABELA, "where ".Constantes::CLIENTE_CHAVE_PRIMARIA." = :id", "id={$id}");
-            // FALTA APAGAR AS FOTOS DO CLIENTE
-//            $deleta->Deletar(foto::tabela, "where ".EnderecoModel::chave_primaria." = :res", "res={$res['id_dados']}");        
-            return $deleta->getResult();
-//        endforeach;
+         if(Valida::ValPerfil("EdicaoCliente")):
+            // NÃO PODE EXCLUIR SE TIVER VINCULO COM ALGUM PLANO OU TITULAR
+   //        $tabela = self::tabela." pes"              
+   //                . " inner join ".DadosModel::tabela." dad"
+   //                . " on dad.".PessoaModel::chave_primaria." = pes.".PessoaModel::chave_primaria
+   //                . " inner join ".EnderecoModel::tabela." end"
+   //                . " on end.".PessoaModel::chave_primaria." = pes.".PessoaModel::chave_primaria;
+   //        
+   //        $campos = "pes.id_pessoa, dad.id_dados, end.id_endereco";
+   //        
+   //        $pesquisa = new Pesquisa();
+   //        $pesquisa->Pesquisar($tabela,"where pes.".PessoaModel::chave_primaria." = :id","id={$id}",$campos);
+           $deleta = new Deleta();
+   //        foreach ($pesquisa->getResult() as $res):
+               $deleta->Deletar(Constantes::CLIENTE_TABELA, "where ".Constantes::CLIENTE_CHAVE_PRIMARIA." = :id", "id={$id}");
+               // FALTA APAGAR AS FOTOS DO CLIENTE
+   //            $deleta->Deletar(foto::tabela, "where ".EnderecoModel::chave_primaria." = :res", "res={$res['id_dados']}");        
+               return $deleta->getResult();
+   //        endforeach;
+             
+         endif;
     }   
     
     
