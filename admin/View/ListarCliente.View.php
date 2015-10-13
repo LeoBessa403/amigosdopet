@@ -54,7 +54,7 @@
                                                                                                 </a>';
                                                                                                
                                                                                 endif;
-                                                                                 $acao .= '<a data-toggle="modal" role="button" class="btn btn-med-grey fotos" id="'.$res['id_cliente'].'" 
+                                                                                 $acao .= ' <a data-toggle="modal" role="button" class="btn btn-med-grey fotos" id="'.$res['id_cliente'].'" 
                                                                                                    href="#Foto" title="'.$res['nome'].'" data-placement="top">
                                                                                                     <i class="fa fa-camera"></i>
                                                                                                 </a>';
