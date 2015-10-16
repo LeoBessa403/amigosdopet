@@ -219,6 +219,8 @@
                 <script src="<?php echo PASTAADMIN;?>plugins/DataTables/media/js/jquery.dataTables.min.js"></script>
 		<script src="<?php echo PASTAADMIN;?>plugins/DataTables/media/js/DT_bootstrap.js"></script>
                 <script src="<?php echo PASTAADMIN;?>js/table-data.js"></script>
+                <script src="<?php echo PASTAADMIN;?>plugins/ckeditor/ckeditor.js"></script>
+		<script src="<?php echo PASTAADMIN;?>plugins/ckeditor/adapters/jquery.js"></script>
                 <script src="<?php echo PASTAADMIN;?>js/Funcoes.js"></script>
 		<!-- end: JAVASCRIPTS REQUIRED FOR THIS PAGE ONLY -->
 		<script>
