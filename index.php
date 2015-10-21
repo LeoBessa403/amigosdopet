@@ -1,4 +1,7 @@
 <?php  
+    include './manutencao.php';
+    exit;
+
     $url = (isset($_GET['url']) && $_GET['url'] != "" ? $_GET['url'] : "web");
   
     $url = $url.'/';
